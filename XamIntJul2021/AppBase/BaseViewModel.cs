@@ -42,9 +42,9 @@ namespace XamIntJul2021.AppBase
             set => SetProperty(ref pageID, value);
         }
 
-        private string isBusy;
+        private bool isBusy;
 
-        public string IsBusy
+        public bool IsBusy
         {
             get => isBusy;
             set => SetProperty(ref isBusy, value);

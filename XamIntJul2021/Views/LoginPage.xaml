@@ -10,19 +10,51 @@
         <vm:LoginViewModel/>
     </controls:BindedPage.BindingContext>
 
-    <Grid ColumnDefinitions="*,8*,1*" RowDefinitions="75,auto, auto, auto, auto, auto,auto">
-        <Label Grid.Column="1" Grid.Row="0" Text="Xamarin inteligente" Style="{StaticResource Header}"/>
-        <Label Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">Inicia tu sesion</Label>
-        <Label Grid.Column="1" Grid.Row="2" HorizontalOptions="Center" Margin="0,0,0,20">
-            <Label.Text>
-                Introduce los datos de acceso
-            </Label.Text>
-        </Label>
 
-        <Entry Grid.Column="1" Grid.Row="3" Text="{Binding UserName}" Placeholder="Usuario"/>
-        <Entry Grid.Column="1" Grid.Row="4" Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
-        <ActivityIndicator Grid.Column="1" Grid.Row="5" IsRunning="{Binding IsBusy}" IsVisible="True"></ActivityIndicator>
-        <Button Grid.Column="1" Grid.Row="6" Text="Iniciar sesion"/>
-    </Grid>
+   
+        <Grid ColumnDefinitions="*,8*,1*" RowDefinitions="75,auto, auto, auto, auto, auto,auto,auto,auto">
+            <Label Grid.Column="1" Grid.Row="0" Text="Xamarin inteligente" Style="{StaticResource Header}"/>
+            <Label Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">Inicia tu sesion</Label>
+            <Label Grid.Column="1" Grid.Row="2" HorizontalOptions="Center" Margin="0,0,0,20">
+                <Label.Text>
+                    Introduce los datos de acceso
+                </Label.Text>
+            </Label>
+
+            <Entry x:Name="userEntry" Grid.Column="1" Grid.Row="3" Text="{Binding UserName}" Placeholder="Usuario">
+                 <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="TextColor" Value="Brown"></Setter>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+            <Label Grid.Column="1" Grid.Row="4" Text="Escriba el nombre de usuario" TextColor="{StaticResource ErrorColor}" IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference userEntry}, Path=Text.Length}" Value="0">
+                        <Setter Property="IsVisible" Value="True"/>
+                </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Password}" Placeholder="Password" IsPassword="True">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="TextColor" Value="Brown"></Setter>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+
+            <ActivityIndicator Grid.Column="1" Grid.Row="6" IsRunning="{Binding IsBusy}" IsVisible="True"></ActivityIndicator>
+            <Button Grid.Column="1" Grid.Row="7" Text="Iniciar sesion"/>
+
+            <Label Grid.Column="1" Grid.Row="8" Text="Registrar nuevo usuario" TextColor="{StaticResource LinkColor}" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+            </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+
+
 
 </controls:BindedPage>

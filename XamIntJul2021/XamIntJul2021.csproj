@@ -24,6 +24,11 @@
     <None Remove="ViewModels\" />
     <None Remove="Views\" />
     <None Remove="AppBase\Controls\" />
+    <None Remove="AppBase\Constants\" />
+    <None Remove="AppBase\Enums\" />
+    <None Remove="AppBase\Helpers\" />
+    <None Remove="AppBase\Behaviors\" />
+    <None Remove="AppBase\Converters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -31,5 +36,10 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
     <Folder Include="AppBase\Controls\" />
+    <Folder Include="AppBase\Constants\" />
+    <Folder Include="AppBase\Enums\" />
+    <Folder Include="AppBase\Helpers\" />
+    <Folder Include="AppBase\Behaviors\" />
+    <Folder Include="AppBase\Converters\" />
   </ItemGroup>
 </Project>

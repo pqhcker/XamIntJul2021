@@ -4,9 +4,16 @@
              x:Class="XamIntJul2021.App">
     <Application.Resources>
         <Color x:Key="MainColor">#09134C</Color>
+        <Color x:Key="SecondaryColor">#0F110C</Color>
         <Color x:Key="DarkColor">#0F110C</Color>
         <Color x:Key="LightColor">#CECCCC</Color>
         <Color x:Key="ErrorColor">#9C0D38</Color>
+        <Color x:Key="LinkColor">Blue</Color>
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource MainColor}"/>
+            <Setter Property="BarTextColor" Value="White"/>
+        </Style>
 
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource MainColor}"/>
@@ -20,6 +27,19 @@
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
+
+       <ControlTemplate x:Key="MasterTemplate">
+           <Grid RowDefinitions="auto,*">
+               <Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="20,auto,*,auto,20" BackgroundColor="{StaticResource SecondaryColor}">
+                   <Label Grid.Column="1" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation" Text="{TemplateBinding Parent.Subtitle}" TextColor="White"/>
+                   <ActivityIndicator Grid.Column="2" Color="White" IsRunning="{TemplateBinding Parent.IsBusy}" IsVisible="{TemplateBinding Parent.IsBusy}"/>
+                   <Label Grid.Column="3" TextColor="White" Text="{TemplateBinding Parent.PageId, StringFormat='XI-{0}'}"/>
+                </Grid>
+
+               <ContentPresenter Grid.Row="1"/>
+            </Grid>
+
+       </ControlTemplate>
 
     </Application.Resources>
 </Application>

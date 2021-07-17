@@ -134,4 +134,12 @@
       <Name>XamIntJul2021</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rigth%401x.png" />
+    <BundleResource Include="Resources\rigth%402x.png" />
+    <BundleResource Include="Resources\rigth%403x.png" />
+    <BundleResource Include="Resources\wrong%401x.png" />
+    <BundleResource Include="Resources\wrong%402x.png" />
+    <BundleResource Include="Resources\wrong%403x.png" />
+  </ItemGroup>
 </Project>

@@ -5,8 +5,32 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace XamIntJul2021.AppBase.Controls
 {
+    [ContentProperty("LayoutContent")]
     public class BindedPage : ContentPage
     {
+        public static readonly BindableProperty LayoutContentProperty
+            = BindableProperty.Create(nameof(LayoutContent), typeof(View), typeof(BindedPage), null, propertyChanged: OnContentChanged);
+
+        public View LayoutContent
+        {
+            get => (View)GetValue(LayoutContentProperty);
+            set => SetValue(LayoutContentProperty, value);
+        }
+
+        private static void OnContentChanged(BindableObject bindableObject, object oldValue, object newValue)
+        {
+            if (bindableObject is BindedPage bindedPage)
+            {
+                var contentViewVar = new ContentView
+                {
+                    ControlTemplate = App.Current.Resources["MasterTemplate"] as ControlTemplate,
+                    Content = newValue as View
+                };
+
+                bindedPage.Content = contentViewVar;
+            }
+        }
+
 
         public static readonly BindableProperty PageIdProperty
             = BindableProperty.Create(nameof(PageId), typeof(string), typeof(BindedPage), "00");
@@ -16,6 +40,8 @@ namespace XamIntJul2021.AppBase.Controls
             get => (string)GetValue(PageIdProperty);
             set => SetValue(PageIdProperty, value);
         }
+
+        
 
         public static readonly BindableProperty SubtitleProperty
             = BindableProperty.Create(nameof(Subtitle), typeof(string), typeof(BindedPage), "00");

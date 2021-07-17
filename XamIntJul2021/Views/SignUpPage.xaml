@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.SignUpPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm="clr-namespace:XamIntJul2021.ViewModels" xmlns:behaviors="clr-namespace:XamIntJul2021.AppBase.Behaviors" xmlns:converters="clr-namespace:XamIntJul2021.AppBase.Converters">
+
+    <controls:BindedPage.Resources>
+        <converters:BoolToImageSourceConverter x:Key="boolToImageSourceCvt"></converters:BoolToImageSourceConverter>
+    </controls:BindedPage.Resources>
+
+    <controls:BindedPage.BindingContext>
+        <vm:SignupViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <controls:BindedPage.ToolbarItems>
+        <ToolbarItem Text="Cancelar" Command="{Binding CancelCommand}"></ToolbarItem>
+        <ToolbarItem Text="Crear" Command="{Binding CreateUserCommand}"></ToolbarItem>
+    </controls:BindedPage.ToolbarItems>
+
+    <TableView Intent="Form" HasUnevenRows="True">
+        <TableSection Title="Datos de acceso">
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" Text="{Binding UserName}">
+                        <Entry.Behaviors>
+                            <behaviors:EntryValidationBehavior IsValid="{Binding IsValidUserName}" ValidationType="Empty"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image HeightRequest="30" WidthRequest="30" Source="{Binding IsValidUserName, Converter={StaticResource boolToImageSourceCvt}}" />
+                </StackLayout>
+            </ViewCell>
+
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Contrasena" HorizontalOptions="FillAndExpand" Text="{Binding Password}" IsPassword="True">
+                        <Entry.Behaviors>
+                            <behaviors:EntryValidationBehavior IsValid="{Binding IsValidPassword}" ValidationType="Password"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image HeightRequest="30" WidthRequest="30" Source="{Binding IsValidPassword, Converter={StaticResource boolToImageSourceCvt}}" />
+                </StackLayout>
+            </ViewCell>
+        </TableSection>
+
+        <TableSection Title="Informacion adicional">
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand" Text="{Binding Address}">
+                        <Entry.Behaviors>
+                            <behaviors:EntryValidationBehavior IsValid="{Binding IsValidAddress}" ValidationType="Empty"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image HeightRequest="30" WidthRequest="30" Source="{Binding IsValidAddress, Converter={StaticResource boolToImageSourceCvt}}" />
+                </StackLayout>
+            </ViewCell>
+
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Telefono" HorizontalOptions="FillAndExpand" Text="{Binding PhoneNumber}">
+                        <Entry.Behaviors>
+                            <behaviors:EntryValidationBehavior IsValid="{Binding IsValidPhoneNumber}" ValidationType="PhoneNumber"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image HeightRequest="30" WidthRequest="30" Source="{Binding IsValidPhoneNumber, Converter={StaticResource boolToImageSourceCvt}}" />
+                </StackLayout>
+            </ViewCell>
+
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Email" HorizontalOptions="FillAndExpand" Text="{Binding Email}">
+                        <Entry.Behaviors>
+                            <behaviors:EntryValidationBehavior IsValid="{Binding IsValidEmail}" ValidationType="Email"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image HeightRequest="30" WidthRequest="30" Source="{Binding IsValidEmail, Converter={StaticResource boolToImageSourceCvt}}" />
+                </StackLayout>
+            </ViewCell>
+        </TableSection>
+    </TableView>
+
+</controls:BindedPage>

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamIntJul2021.AppBase;
+using XamIntJul2021.Views;
 
 namespace XamIntJul2021.ViewModels
 {
@@ -8,15 +10,26 @@ namespace XamIntJul2021.ViewModels
     {
         public LoginViewModel()
         {
-            Title = "Iniciar sesion";
+            Title = AppBase.Constants.Titles.LOGINPAGE;
+            Subtitle = AppBase.Constants.Subtitles.SUBTITLE;
+            PageId = AppBase.Constants.PageIds.PAGEID;
 
-            OnAppearingCommnad = new Command(() => App.Current.MainPage.DisplayAlert("Hola", "Aparecio la pantalla", "Aceptar"));
+            //IsBusy = true;
 
-            #if DEBUG
-                UserName = "Alejandro";
-                Password = "1234";
-            #endif
+            //OnAppearingCommnad = new Command(() => App.Current.MainPage.DisplayAlert("Hola", "Aparecio la pantalla", "Aceptar"));
+
+#if DEBUG
+            //UserName = "Alejandro";
+            //Password = "1234";
+#endif
+
+            SignUpCommand = new(async () => await SignUpAsync());
+
         }
+
+        async Task SignUpAsync() => await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new SignUpPage()));
+
+        public Command SignUpCommand { get; set; }
 
         private string userName;
 
