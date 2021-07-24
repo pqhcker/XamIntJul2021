@@ -45,7 +45,7 @@ namespace XamIntJul2021.AppBase.Navigation
             => await NavigateToAsync(pageName, null);
 
         public async Task NavigateToAsync(string pageName, Dictionary<string, object> navigationParameters)
-        => await NavigateToAsync(pageName, navigationParameters, false);
+        => await NavigateToAsync(pageName, navigationParameters, true);
 
         public async Task NavigateToAsync(string pageName, Dictionary<string, object> navigationParameters, bool addToNavigationPage = false)
         => await NavigateToAsync(pageName, navigationParameters, false, addToNavigationPage);

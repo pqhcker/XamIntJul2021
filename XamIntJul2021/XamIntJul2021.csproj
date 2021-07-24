@@ -31,6 +31,9 @@
     <None Remove="AppBase\Converters\" />
     <None Remove="AppBase\Interfaces\" />
     <None Remove="AppBase\Navigation\" />
+    <None Remove="AppBase\Localization\" />
+    
+    <None Remove="AppBase\Settings\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -45,5 +48,21 @@
     <Folder Include="AppBase\Converters\" />
     <Folder Include="AppBase\Interfaces\" />
     <Folder Include="AppBase\Navigation\" />
+    <Folder Include="AppBase\Localization\" />
+    <Folder Include="AppBase\Settings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AppBase\Localization\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppBase\Localization\AppResources.es.resx">
+      <Generator></Generator>      
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AppBase\Localization\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

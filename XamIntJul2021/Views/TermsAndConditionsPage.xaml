@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.TermsAndConditionsPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm="clr-namespace:XamIntJul2021.ViewModels"
+    xmlns:resources="clr-namespace:XamIntJul2021.AppBase.Localization">
+
+    <controls:BindedPage.BindingContext>
+        <vm:TermsAndConditionsViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <WebView x:Name="browser" IsEnabled="True" IsVisible="True"/>
+        <Button Text="{x:Static resources:AppResources.AcceptTerms}" Command="{Binding AcceptCommand}"/>
+    </StackLayout>
+
+</controls:BindedPage>

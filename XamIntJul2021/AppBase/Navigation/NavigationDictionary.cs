@@ -15,6 +15,8 @@ namespace XamIntJul2021.AppBase.Navigation
         {
             Add(Constants.PageIds.PAGEID, new(typeof(LoginPage), typeof(LoginViewModel)));
             Add(Constants.PageIds.SIGNUP, new(typeof(SignUpPage), typeof(SignupViewModel)));
+            Add(Constants.PageIds.LANG, new(typeof(LanguagePage), typeof(LanguageViewModel)));
+            Add(Constants.PageIds.TERMS, new(typeof(TermsAndConditionsPage), typeof(TermsAndConditionsViewModel)));
         }
     }
 }

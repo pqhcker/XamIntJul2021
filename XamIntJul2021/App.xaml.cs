@@ -16,7 +16,7 @@ namespace XamIntJul2021
             FormsNavigationService = new(this);
             FormsNavigationService.RegisterNavigationDictionary(NavigationDictionary.Instance);
             //MainPage = new NavigationPage(new LoginPage());
-            FormsNavigationService.ReplaceRootAsync(AppBase.Constants.PageIds.PAGEID, true);
+            FormsNavigationService.ReplaceRootAsync(AppBase.Constants.PageIds.LANG, true);
         }
 
         protected override void OnStart()

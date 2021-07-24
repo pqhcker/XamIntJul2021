@@ -34,5 +34,12 @@
     <string>XamIntJul2021</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>es</string>
+    </array>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>es</string>
 </dict>
 </plist>
