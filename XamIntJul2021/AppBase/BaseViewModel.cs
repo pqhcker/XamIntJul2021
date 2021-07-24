@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using XamIntJul2021.AppBase.Interfaces;
 
 namespace XamIntJul2021.AppBase
 {
@@ -8,7 +9,11 @@ namespace XamIntJul2021.AppBase
     {
         public BaseViewModel()
         {
+            NavigationService = (Xamarin.Forms.Application.Current as App).FormsNavigationService;
         }
+
+        public BaseViewModel(INavigationService navigationService)
+            => NavigationService = navigationService;
 
         private string title;
 
@@ -50,6 +55,8 @@ namespace XamIntJul2021.AppBase
             set => SetProperty(ref isBusy, value);
         }
 
+        public INavigationService NavigationService { get; private set; }
+
         public ICommand OnAppearingCommnad { get; set; }
 
         public ICommand OnDisapearing { get; set; }
@@ -60,6 +67,11 @@ namespace XamIntJul2021.AppBase
         }
 
         public virtual void Save()
+        {
+
+        }
+
+        public virtual void OnNavigationFrom(Dictionary<string,object> navigationParameters)
         {
 
         }

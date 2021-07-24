@@ -27,7 +27,8 @@ namespace XamIntJul2021.ViewModels
 
         }
 
-        async Task SignUpAsync() => await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new SignUpPage()));
+        //async Task SignUpAsync() => await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new SignUpPage()));
+        async Task SignUpAsync() => await NavigationService.NavigateToModalAsync(AppBase.Constants.PageIds.SIGNUP);
 
         public Command SignUpCommand { get; set; }
 

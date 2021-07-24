@@ -16,7 +16,7 @@
 
     <controls:BindedPage.ToolbarItems>
         <ToolbarItem Text="Cancelar" Command="{Binding CancelCommand}"></ToolbarItem>
-        <ToolbarItem Text="Crear" Command="{Binding CreateUserCommand}"></ToolbarItem>
+        <controls:DynamicVisibilityToolbarItem IsVisible="{Binding IsValid}" Text="Crear" Command="{Binding CreateUserCommand}"></controls:DynamicVisibilityToolbarItem>
     </controls:BindedPage.ToolbarItems>
 
     <TableView Intent="Form" HasUnevenRows="True">

@@ -5,7 +5,7 @@ using XamIntJul2021.AppBase;
 
 namespace XamIntJul2021.ViewModels
 {
-    public class SignupViewModel: BaseViewModel
+    public class SignupViewModel : BaseViewModel
     {
         public SignupViewModel()
         {
@@ -14,12 +14,37 @@ namespace XamIntJul2021.ViewModels
             PageId = AppBase.Constants.PageIds.SIGNUP;
 
             CancelCommand = new(async () => await Cancel());
+            CreateUserCommand = new(async () => await CreateUser());
         }
 
-        private async Task Cancel() => await Application.Current.MainPage.Navigation.PopModalAsync();
+        //private async Task Cancel() => await Application.Current.MainPage.Navigation.PopModalAsync();
+        private async Task Cancel() => await NavigationService.GoBackModalAsync();
 
         public Command CreateUserCommand { get; set; }
         public Command CancelCommand { get; set; }
+
+        private async Task CreateUser()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                await Task.Delay(1500);
+                await Application.Current.MainPage.DisplayAlert("Usuario creado", $"{UserName} se creo exitosamente", "Aceptar");
+                CleanData();
+                //await Application.Current.MainPage.Navigation.PopModalAsync();
+                await NavigationService.GoBackModalAsync();
+                IsBusy = false;
+            }
+        }
+
+        private void CleanData()
+        {
+            UserName = string.Empty;
+            Password = string.Empty;
+            Email = string.Empty;
+            Address = string.Empty;
+            PhoneNumber = string.Empty;
+        }
 
         private string userName;
 
@@ -67,7 +92,11 @@ namespace XamIntJul2021.ViewModels
         public bool IsValidUserName
         {
             get => isValidUserName;
-            set => SetProperty(ref isValidUserName, value);
+            set
+            {
+                SetProperty(ref isValidUserName, value);
+                ValidateAll();
+            }
         }
 
         private bool isValidPassword;
@@ -75,7 +104,11 @@ namespace XamIntJul2021.ViewModels
         public bool IsValidPassword
         {
             get => isValidPassword;
-            set => SetProperty(ref isValidPassword, value);
+            set
+            {
+                SetProperty(ref isValidPassword, value);
+                ValidateAll();
+            }
         }
 
         private bool isValidAddress;
@@ -83,7 +116,11 @@ namespace XamIntJul2021.ViewModels
         public bool IsValidAddress
         {
             get => isValidAddress;
-            set => SetProperty(ref isValidAddress, value);
+            set
+            {
+                SetProperty(ref isValidAddress, value);
+                ValidateAll();
+            }
         }
 
         private bool isValidPhoneNumber;
@@ -91,7 +128,11 @@ namespace XamIntJul2021.ViewModels
         public bool IsValidPhoneNumber
         {
             get => isValidPhoneNumber;
-            set => SetProperty(ref isValidPhoneNumber, value);
+            set
+            {
+                SetProperty(ref isValidPhoneNumber, value);
+                ValidateAll();
+            }
         }
 
         private bool isValidEmail;
@@ -99,8 +140,24 @@ namespace XamIntJul2021.ViewModels
         public bool IsValidEmail
         {
             get => isValidEmail;
-            set => SetProperty(ref isValidEmail, value);
+            set
+            {
+                SetProperty(ref isValidEmail, value);
+                ValidateAll();
+            }
         }
+
+        private bool isValid;
+
+        public bool IsValid
+        {
+            get => isValid;
+            set => SetProperty(ref isValid, value);
+        }
+
+        private void ValidateAll() =>
+            IsValid = IsValidAddress && IsValidEmail && IsValidPassword && IsValidPhoneNumber && isValidUserName;
+
         #endregion
     }
 }

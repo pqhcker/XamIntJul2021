@@ -29,6 +29,8 @@
     <None Remove="AppBase\Helpers\" />
     <None Remove="AppBase\Behaviors\" />
     <None Remove="AppBase\Converters\" />
+    <None Remove="AppBase\Interfaces\" />
+    <None Remove="AppBase\Navigation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -41,5 +43,7 @@
     <Folder Include="AppBase\Helpers\" />
     <Folder Include="AppBase\Behaviors\" />
     <Folder Include="AppBase\Converters\" />
+    <Folder Include="AppBase\Interfaces\" />
+    <Folder Include="AppBase\Navigation\" />
   </ItemGroup>
 </Project>
