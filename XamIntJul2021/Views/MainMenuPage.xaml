@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.MainMenuPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm="clr-namespace:XamIntJul2021.ViewModels"
+    xmlns:r="clr-namespace:XamIntJul2021.AppBase.Localization">
+
+    <controls:BindedPage.BindingContext>
+        <vm:MainMenuViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <Grid Margin="20" RowDefinitions="*,*,*" ColumnDefinitions="*,*" ColumnSpacing="20" RowSpacing="20">
+        <controls:MenuItem Grid.Column="0" Grid.Row="0" Text="{x:Static r:AppResources.PageTitleNewReport}" Source="add" MenuCommand="{Binding NewReportCommand}"/>
+        <controls:MenuItem Grid.Column="1" Grid.Row="0" Text="{x:Static r:AppResources.PageTitleReport}" Source="reports" MenuCommand="{Binding ReportsCommand}"/>
+        <controls:MenuItem Grid.Column="0" Grid.Row="1" Text="{x:Static r:AppResources.PageTitleSync}" Source="sync" MenuCommand="{Binding SyncCommand}"/>
+        <controls:MenuItem Grid.Column="1" Grid.Row="1" Text="{x:Static r:AppResources.PageTitleLocations}" Source="location" MenuCommand="{Binding LocationCommand}"/>
+        <controls:MenuItem Grid.Column="0" Grid.Row="2" Text="{x:Static r:AppResources.PageTitleAbout}" Source="info" MenuCommand="{Binding AboutCommand}"/>
+    </Grid>
+
+</controls:BindedPage>

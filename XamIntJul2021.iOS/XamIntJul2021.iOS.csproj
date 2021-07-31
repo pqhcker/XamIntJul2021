@@ -113,6 +113,30 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\info.imageset\info.png" />
+    <ImageAsset Include="Assets.xcassets\info.imageset\info%403x.png" />
+    <ImageAsset Include="Assets.xcassets\info.imageset\info%402x.png" />
+    <ImageAsset Include="Assets.xcassets\info.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add%402x.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add%403x.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\sync.imageset\sync%402x.png" />
+    <ImageAsset Include="Assets.xcassets\sync.imageset\sync%403x.png" />
+    <ImageAsset Include="Assets.xcassets\sync.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\sync.imageset\sync.png" />
+    <ImageAsset Include="Assets.xcassets\reports.imageset\reports.png" />
+    <ImageAsset Include="Assets.xcassets\reports.imageset\reports%403x.png" />
+    <ImageAsset Include="Assets.xcassets\reports.imageset\reports%402x.png" />
+    <ImageAsset Include="Assets.xcassets\reports.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\wrong.xcassets\wrong.imageset\baseline_dangerous_black_48pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\wrong.xcassets\wrong.imageset\baseline_dangerous_black_48pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\wrong.xcassets\wrong.imageset\baseline_dangerous_black_48pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\wrong.xcassets\wrong.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\location.png" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\location%403x.png" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\location%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

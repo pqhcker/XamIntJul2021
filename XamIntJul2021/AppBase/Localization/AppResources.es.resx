@@ -137,4 +137,48 @@
     <value>TERMS</value>
     <comment/>
   </data>
+  <data name="PageTitleMainMenu" xml:space="preserve">
+    <value>Menu Principal</value>
+    <comment/>
+  </data>
+  <data name="PageTitleNewReport" xml:space="preserve">
+    <value>Nuevo Reporte</value>
+    <comment/>
+  </data>
+  <data name="PageTitleLocations" xml:space="preserve">
+    <value>Suursales</value>
+    <comment/>
+  </data>
+  <data name="PageTitleSync" xml:space="preserve">
+    <value>Sincronizar</value>
+    <comment/>
+  </data>
+  <data name="PageTitleAbout" xml:space="preserve">
+    <value>Acerca de</value>
+    <comment/>
+  </data>
+  <data name="PageTitleReport" xml:space="preserve">
+    <value>Reportes</value>
+    <comment/>
+  </data>
+  <data name="AboutDeviceName" xml:space="preserve">
+    <value>Nombre del dispositivo</value>
+    <comment/>
+  </data>
+  <data name="AboutDevicePlatform" xml:space="preserve">
+    <value>Plataforma dispositivo</value>
+    <comment/>
+  </data>
+  <data name="AboutDeviceSystemVersion" xml:space="preserve">
+    <value>Version dispositivo</value>
+    <comment/>
+  </data>
+  <data name="AboutDeviceManufacturer" xml:space="preserve">
+    <value>Dispositivo fabricante</value>
+    <comment/>
+  </data>
+  <data name="AboutDeviceModel" xml:space="preserve">
+    <value>Model dispositivo</value>
+    <comment/>
+  </data>
 </root>

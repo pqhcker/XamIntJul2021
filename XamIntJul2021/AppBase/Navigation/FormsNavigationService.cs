@@ -45,7 +45,7 @@ namespace XamIntJul2021.AppBase.Navigation
             => await NavigateToAsync(pageName, null);
 
         public async Task NavigateToAsync(string pageName, Dictionary<string, object> navigationParameters)
-        => await NavigateToAsync(pageName, navigationParameters, true);
+        => await NavigateToAsync(pageName, navigationParameters, false);
 
         public async Task NavigateToAsync(string pageName, Dictionary<string, object> navigationParameters, bool addToNavigationPage = false)
         => await NavigateToAsync(pageName, navigationParameters, false, addToNavigationPage);
@@ -53,52 +53,61 @@ namespace XamIntJul2021.AppBase.Navigation
         public async Task NavigateToAsync(string pageName, Dictionary<string, object> navigationParameters,
             bool isModal = false, bool addToNavigationPage = false)
         {
-            InitNavigation();
-            if (navigationPairs.ContainsKey(pageName))
+            try
             {
-                var viewModelType = navigationPairs[pageName].ViewModelType;
-                var pageType = navigationPairs[pageName].PageType;
-
-                var pageConstr = GetConstructor(pageType);
-
-                if (pageConstr is not null)
+                InitNavigation();
+                if (navigationPairs.ContainsKey(pageName))
                 {
-                    var page = pageConstr.Invoke(null) as Page;
+                    var viewModelType = navigationPairs[pageName].ViewModelType;
+                    var pageType = navigationPairs[pageName].PageType;
 
-                    if (page.BindingContext is not null
-                        && page.BindingContext.GetType() == viewModelType
-                        && page.BindingContext is BaseViewModel viewModel)
+                    var pageConstr = GetConstructor(pageType);
 
-                        viewModel.OnNavigationFrom(navigationParameters);
+                    if (pageConstr is not null)
+                    {
+                        var page = pageConstr.Invoke(null) as Page;
+
+                        if (page.BindingContext is not null
+                            && page.BindingContext.GetType() == viewModelType
+                            && page.BindingContext is BaseViewModel viewModel)
+
+                            viewModel.OnNavigationFrom(navigationParameters);
+                        else
+                        {
+                            var viewModelConst = GetConstructor(viewModelType);
+                            var newViewModel = viewModelConst.Invoke(null) as BaseViewModel;
+                            page.BindingContext = newViewModel;
+                            newViewModel.OnNavigationFrom(navigationParameters);
+                        }
+
+                        if (isModal)
+                            if (!addToNavigationPage)
+                                await navigation.PushModalAsync(page);
+                            else
+                                await navigation.PushModalAsync(new NavigationPage(page));
+                        else
+                            if (!addToNavigationPage)
+                            await navigation.PushAsync(page);
+                        else
+                            await navigation.PushAsync(new NavigationPage(page));
+                    }
                     else
                     {
-                        var viewModelConst = GetConstructor(viewModelType);
-                        var newViewModel = viewModelConst.Invoke(null) as BaseViewModel;
-                        page.BindingContext = newViewModel;
-                        newViewModel.OnNavigationFrom(navigationParameters);
+                        throw new MissingMemberException($"{pageName} has not valid constructor for navigation. Parameter less constructor is requerid");
                     }
 
-                    if (isModal)
-                        if (!addToNavigationPage)
-                            await navigation.PushModalAsync(page);
-                        else
-                            await navigation.PushModalAsync(new NavigationPage(page));
-                    else
-                        if (!addToNavigationPage)
-                        await navigation.PushAsync(page);
-                    else
-                        await navigation.PushAsync(new NavigationPage(page));
                 }
                 else
                 {
-                    throw new MissingMemberException($"{pageName} has not valid constructor for navigation. Parameter less constructor is requerid");
+                    throw new KeyNotFoundException($"{pageName} is not present in the navigation dictionary");
                 }
-
             }
-            else
+            catch(Exception ex)
             {
-                throw new KeyNotFoundException($"{pageName} is not present in the navigation dictionary");
+                //throw new Exception("Error");
+                var exep = ex;
             }
+            
         }
 
         public async Task NavigateToFlyoutDetailAsync(string pageName, Dictionary<string, object> navigationParameters, bool addToNavigationPage = false)
@@ -160,6 +169,7 @@ namespace XamIntJul2021.AppBase.Navigation
 
         public async Task ReplaceRootAsync(string pageName, Dictionary<string, object> navigationParameters, bool addToNavigationPage = false)
         {
+            navigation = null;
             if (navigationPairs.ContainsKey(pageName))
             {
                 var viewModelType = navigationPairs[pageName].ViewModelType;

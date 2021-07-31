@@ -12,8 +12,8 @@
     </controls:BindedPage.BindingContext>
 
     <StackLayout Padding="20">
-        <WebView x:Name="browser" IsEnabled="True" IsVisible="True"/>
-        <Button Text="{x:Static resources:AppResources.AcceptTerms}" Command="{Binding AcceptCommand}"/>
+        <WebView x:Name="browser" IsEnabled="True" IsVisible="True" HorizontalOptions="Fill" VerticalOptions="FillAndExpand"/>
+        <Button Text="{x:Static resources:AppResources.AcceptTerms}" Command="{Binding AcceptTermsCommand}"/>
     </StackLayout>
 
 </controls:BindedPage>

@@ -34,6 +34,19 @@
     <None Remove="AppBase\Localization\" />
     
     <None Remove="AppBase\Settings\" />
+    <None Remove="Files\" />
+    <None Remove="Files\TermsAndConditionsEN.html" />
+    <None Remove="Files\TermsAndConditionsES.html" />
+    <None Remove="Views\NewReport\" />
+    <None Remove="Views\Reports\" />
+    <None Remove="Views\Locations\" />
+    <None Remove="Views\Sync\" />
+    <None Remove="Views\About\" />
+    <None Remove="ViewModels\About\" />
+    <None Remove="ViewModels\Locations\" />
+    <None Remove="ViewModels\NewReport\" />
+    <None Remove="ViewModels\Reports\" />
+    <None Remove="ViewModels\Sync\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -50,6 +63,21 @@
     <Folder Include="AppBase\Navigation\" />
     <Folder Include="AppBase\Localization\" />
     <Folder Include="AppBase\Settings\" />
+    <Folder Include="Files\" />
+    <Folder Include="Views\NewReport\" />
+    <Folder Include="Views\Reports\" />
+    <Folder Include="Views\Locations\" />
+    <Folder Include="Views\Sync\" />
+    <Folder Include="Views\About\" />
+    <Folder Include="ViewModels\About\" />
+    <Folder Include="ViewModels\Locations\" />
+    <Folder Include="ViewModels\NewReport\" />
+    <Folder Include="ViewModels\Reports\" />
+    <Folder Include="ViewModels\Sync\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Files\TermsAndConditionsEN.html" />
+    <EmbeddedResource Include="Files\TermsAndConditionsES.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="AppBase\Localization\AppResources.resx">

@@ -45,7 +45,7 @@
             </Entry>
 
             <ActivityIndicator Grid.Column="1" Grid.Row="6" IsRunning="{Binding IsBusy}" IsVisible="True"></ActivityIndicator>
-            <Button Grid.Column="1" Grid.Row="7" Text="Iniciar sesion"/>
+            <Button Grid.Column="1" Grid.Row="7" Text="Iniciar sesion" Command="{Binding LoginCommand}"/>
 
             <Label Grid.Column="1" Grid.Row="8" Text="Registrar nuevo usuario" TextColor="{StaticResource LinkColor}" HorizontalOptions="Center">
                 <Label.GestureRecognizers>

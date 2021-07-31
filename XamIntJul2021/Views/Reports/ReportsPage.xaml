@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.Reports.ReportsPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.Reports">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:ReportsViewModel/>
+    </controls:BindedPage.BindingContext>
+</controls:BindedPage>

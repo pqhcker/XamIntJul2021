@@ -24,13 +24,28 @@ namespace XamIntJul2021.ViewModels
 #endif
 
             SignUpCommand = new(async () => await SignUpAsync());
-
+            LoginCommand = new(async () => await Login());
         }
 
         //async Task SignUpAsync() => await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new SignUpPage()));
         async Task SignUpAsync() => await NavigationService.NavigateToModalAsync(AppBase.Constants.PageIds.SIGNUP);
 
+        private async Task Login()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                await Task.Delay(2000);
+
+                await NavigationService.ReplaceRootAsync(AppBase.Constants.PageIds.MAINMENU, true);
+
+                IsBusy = false;
+            }
+        }
+
         public Command SignUpCommand { get; set; }
+        public Command LoginCommand { get; set; }
 
         private string userName;
 

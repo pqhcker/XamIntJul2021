@@ -76,5 +76,71 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("PageTitleTerms", resourceCulture);
             }
         }
+        
+        public static string PageTitleMainMenu {
+            get {
+                return ResourceManager.GetString("PageTitleMainMenu", resourceCulture);
+            }
+        }
+        
+        public static string PageTitleNewReport {
+            get {
+                return ResourceManager.GetString("PageTitleNewReport", resourceCulture);
+            }
+        }
+        
+        public static string PageTitleLocations {
+            get {
+                return ResourceManager.GetString("PageTitleLocations", resourceCulture);
+            }
+        }
+        
+        public static string PageTitleSync {
+            get {
+                return ResourceManager.GetString("PageTitleSync", resourceCulture);
+            }
+        }
+        
+        public static string PageTitleAbout {
+            get {
+                return ResourceManager.GetString("PageTitleAbout", resourceCulture);
+            }
+        }
+        
+        public static string PageTitleReport {
+            get {
+                return ResourceManager.GetString("PageTitleReport", resourceCulture);
+            }
+        }
+        
+        public static string AboutDeviceName {
+            get {
+                return ResourceManager.GetString("AboutDeviceName", resourceCulture);
+            }
+        }
+        
+        public static string AboutDevicePlatform {
+            get {
+                return ResourceManager.GetString("AboutDevicePlatform", resourceCulture);
+            }
+        }
+        
+        public static string AboutDeviceSystemVersion {
+            get {
+                return ResourceManager.GetString("AboutDeviceSystemVersion", resourceCulture);
+            }
+        }
+        
+        public static string AboutDeviceManufacturer {
+            get {
+                return ResourceManager.GetString("AboutDeviceManufacturer", resourceCulture);
+            }
+        }
+        
+        public static string AboutDeviceModel {
+            get {
+                return ResourceManager.GetString("AboutDeviceModel", resourceCulture);
+            }
+        }
     }
 }

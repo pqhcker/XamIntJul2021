@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.About.AboutPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.About"
+    xmlns:r="clr-namespace:XamIntJul2021.AppBase.Localization">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:AboutViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <Grid Margin="20" RowDefinitions="*,*,*,*,*,*,*" ColumnDefinitions="*,*">
+
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Header}" Text="{Binding AppName}"/>
+        
+        <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Header}" Text="{Binding AppVersion, StringFormat='Version {0}'}"/>
+        
+
+        <Label Grid.Column="0" Grid.Row="2" Text="{x:Static r:AppResources.AboutDeviceName}"/>
+        <Label Grid.Column="1" Grid.Row="2" Text="{Binding DeviceName}"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Text="{x:Static r:AppResources.AboutDevicePlatform}"/>
+        <Label Grid.Column="1" Grid.Row="3" Text="{Binding DevicePlatform}"/>
+
+        <Label Grid.Column="0" Grid.Row="4" Text="{x:Static r:AppResources.AboutDeviceSystemVersion}"/>
+        <Label Grid.Column="1" Grid.Row="4" Text="{Binding DeviceVersion}"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Text="{x:Static r:AppResources.AboutDeviceManufacturer}"/>
+        <Label Grid.Column="1" Grid.Row="5" Text="{Binding DeviceManufacturer}"/>
+
+        <Label Grid.Column="0" Grid.Row="6" Text="{x:Static r:AppResources.AboutDeviceModel}"/>
+        <Label Grid.Column="1" Grid.Row="6" Text="{Binding DeviceModel}"/>
+
+    </Grid>
+</controls:BindedPage>
