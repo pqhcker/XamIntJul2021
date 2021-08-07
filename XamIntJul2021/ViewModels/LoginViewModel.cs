@@ -2,12 +2,17 @@
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamIntJul2021.AppBase;
+using XamIntJul2021.AppBase.Localization;
+using XamIntJul2021.Services.Interfaces;
+using XamIntJul2021.Services.RestServices;
 using XamIntJul2021.Views;
 
 namespace XamIntJul2021.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        IUserService userService = new UserRestService();
+
         public LoginViewModel()
         {
             Title = AppBase.Constants.Titles.LOGINPAGE;
@@ -36,9 +41,23 @@ namespace XamIntJul2021.ViewModels
             {
                 IsBusy = true;
 
-                await Task.Delay(2000);
+                //await Task.Delay(2000);
 
-                await NavigationService.ReplaceRootAsync(AppBase.Constants.PageIds.MAINMENU, true);
+                var loginReponse = await userService.Login(new()
+                {
+                    UserName = userName,
+                    Password = password
+                });
+
+                if (loginReponse.ServiceResponse == AppBase.Enums.ServiceResponse.Ok)
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.LoginTitle, loginReponse.Message, AppResources.AcceptButton);
+                    await NavigationService.ReplaceRootAsync(AppBase.Constants.PageIds.MAINMENU, true);
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.LoginTitle, loginReponse.Message, AppResources.AcceptButton);
+                }
 
                 IsBusy = false;
             }

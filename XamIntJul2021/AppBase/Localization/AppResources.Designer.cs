@@ -142,5 +142,77 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("AboutDeviceModel", resourceCulture);
             }
         }
+        
+        public static string ErrorMessage {
+            get {
+                return ResourceManager.GetString("ErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string NotConnectedError {
+            get {
+                return ResourceManager.GetString("NotConnectedError", resourceCulture);
+            }
+        }
+        
+        public static string UserCreatedMessage {
+            get {
+                return ResourceManager.GetString("UserCreatedMessage", resourceCulture);
+            }
+        }
+        
+        public static string TimeoutMessage {
+            get {
+                return ResourceManager.GetString("TimeoutMessage", resourceCulture);
+            }
+        }
+        
+        public static string UnauthorizedMessage {
+            get {
+                return ResourceManager.GetString("UnauthorizedMessage", resourceCulture);
+            }
+        }
+        
+        public static string ServerErrorMessage {
+            get {
+                return ResourceManager.GetString("ServerErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string UserCreatedTitle {
+            get {
+                return ResourceManager.GetString("UserCreatedTitle", resourceCulture);
+            }
+        }
+        
+        public static string AcceptButton {
+            get {
+                return ResourceManager.GetString("AcceptButton", resourceCulture);
+            }
+        }
+        
+        public static string UserCreationErrorTitle {
+            get {
+                return ResourceManager.GetString("UserCreationErrorTitle", resourceCulture);
+            }
+        }
+        
+        public static string SuccessLoginMessage {
+            get {
+                return ResourceManager.GetString("SuccessLoginMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorLoginMessage {
+            get {
+                return ResourceManager.GetString("ErrorLoginMessage", resourceCulture);
+            }
+        }
+        
+        public static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
     }
 }

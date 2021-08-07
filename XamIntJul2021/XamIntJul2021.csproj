@@ -15,8 +15,9 @@
     <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="AppBase\" />
@@ -47,6 +48,14 @@
     <None Remove="ViewModels\NewReport\" />
     <None Remove="ViewModels\Reports\" />
     <None Remove="ViewModels\Sync\" />
+    <None Remove="Services\" />
+    <None Remove="AppBase\Services\" />
+    <None Remove="AppBase\Services\RestService\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="AppBase\Services\Reponses\" />
+    <None Remove="Services\Responses\" />
+    <None Remove="Services\RestServices\" />
+    <None Remove="Newtonsoft.Json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -74,6 +83,13 @@
     <Folder Include="ViewModels\NewReport\" />
     <Folder Include="ViewModels\Reports\" />
     <Folder Include="ViewModels\Sync\" />
+    <Folder Include="Services\" />
+    <Folder Include="AppBase\Services\" />
+    <Folder Include="AppBase\Services\RestService\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="AppBase\Services\Reponses\" />
+    <Folder Include="Services\Responses\" />
+    <Folder Include="Services\RestServices\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Files\TermsAndConditionsEN.html" />

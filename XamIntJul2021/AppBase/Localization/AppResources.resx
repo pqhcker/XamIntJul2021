@@ -181,4 +181,52 @@
     <value>Device Model</value>
     <comment/>
   </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error</value>
+    <comment/>
+  </data>
+  <data name="NotConnectedError" xml:space="preserve">
+    <value>Please verify your network connection</value>
+    <comment/>
+  </data>
+  <data name="UserCreatedMessage" xml:space="preserve">
+    <value>User was created successfully</value>
+    <comment/>
+  </data>
+  <data name="TimeoutMessage" xml:space="preserve">
+    <value>Timeout was reached</value>
+    <comment/>
+  </data>
+  <data name="UnauthorizedMessage" xml:space="preserve">
+    <value>User have invalid session</value>
+    <comment/>
+  </data>
+  <data name="ServerErrorMessage" xml:space="preserve">
+    <value>Error in server</value>
+    <comment/>
+  </data>
+  <data name="UserCreatedTitle" xml:space="preserve">
+    <value>User was created</value>
+    <comment/>
+  </data>
+  <data name="AcceptButton" xml:space="preserve">
+    <value>Accept</value>
+    <comment/>
+  </data>
+  <data name="UserCreationErrorTitle" xml:space="preserve">
+    <value>Create user have an error</value>
+    <comment/>
+  </data>
+  <data name="SuccessLoginMessage" xml:space="preserve">
+    <value>Welcome {0}</value>
+    <comment/>
+  </data>
+  <data name="ErrorLoginMessage" xml:space="preserve">
+    <value>Invalid user credentials</value>
+    <comment/>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Login</value>
+    <comment/>
+  </data>
 </root>

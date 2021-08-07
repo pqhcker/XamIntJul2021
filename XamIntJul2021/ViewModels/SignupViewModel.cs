@@ -2,11 +2,16 @@
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamIntJul2021.AppBase;
+using XamIntJul2021.AppBase.Localization;
+using XamIntJul2021.Services.Interfaces;
+using XamIntJul2021.Services.RestServices;
 
 namespace XamIntJul2021.ViewModels
 {
     public class SignupViewModel : BaseViewModel
     {
+        IUserService userService = new UserRestService();
+
         public SignupViewModel()
         {
             Title = AppBase.Constants.Titles.REGISTRO;
@@ -28,8 +33,31 @@ namespace XamIntJul2021.ViewModels
             if (!IsBusy)
             {
                 IsBusy = true;
-                await Task.Delay(1500);
-                await Application.Current.MainPage.DisplayAlert("Usuario creado", $"{UserName} se creo exitosamente", "Aceptar");
+                //await Task.Delay(1500);
+
+                var registrationResponse = await userService.Register(new()
+                {
+                    Address = address,
+                    Email = email,
+                    Password = password,
+                    UserName = userName,
+                    PhoneNumber = phoneNumber
+
+                });
+
+                if (registrationResponse.ServiceResponse == AppBase.Enums.ServiceResponse.Ok)
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.UserCreatedTitle, registrationResponse.Message, AppResources.AcceptButton);
+                    CleanData();
+                    await NavigationService.GoBackAsync();
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.UserCreationErrorTitle, registrationResponse.Message, AppResources.AcceptButton);
+                }
+
+
+                //await Application.Current.MainPage.DisplayAlert("Usuario creado", $"{UserName} se creo exitosamente", "Aceptar");
                 CleanData();
                 //await Application.Current.MainPage.Navigation.PopModalAsync();
                 await NavigationService.GoBackModalAsync();
