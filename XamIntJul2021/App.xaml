@@ -22,7 +22,7 @@
         </Style>
 
         <Style TargetType="Label" x:Key="Header">
-            <Setter Property="FontSize" Value="Header"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="TextColor" Value="{StaticResource ErrorColor}"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>

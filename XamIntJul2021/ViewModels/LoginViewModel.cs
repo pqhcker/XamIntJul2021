@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamIntJul2021.AppBase;
 using XamIntJul2021.AppBase.Localization;
+using XamIntJul2021.AppBase.Settings;
 using XamIntJul2021.Services.Interfaces;
 using XamIntJul2021.Services.RestServices;
 using XamIntJul2021.Views;
@@ -52,6 +53,9 @@ namespace XamIntJul2021.ViewModels
                 if (loginReponse.ServiceResponse == AppBase.Enums.ServiceResponse.Ok)
                 {
                     await Application.Current.MainPage.DisplayAlert(AppResources.LoginTitle, loginReponse.Message, AppResources.AcceptButton);
+
+                    UserSettings.AccessToken = loginReponse.AccessToken;
+
                     await NavigationService.ReplaceRootAsync(AppBase.Constants.PageIds.MAINMENU, true);
                 }
                 else

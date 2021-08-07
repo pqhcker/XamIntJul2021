@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.Locations.BranchDetail"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.Locations"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:BranchDetailViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <Grid RowDefinitions="20,auto,auto,*,auto,30">
+        <Label Grid.Row="1" Text="{Binding Name}" Style="{StaticResource Header}"/>
+        <Label Grid.Row="2" Text="{Binding Location}"/>
+        <maps:Map Grid.Row="3"/>
+        <Button Grid.Row="4" Text="Abrir el mapa"/>
+
+    </Grid>
+
+</controls:BindedPage>

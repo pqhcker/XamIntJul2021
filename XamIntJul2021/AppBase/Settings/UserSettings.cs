@@ -16,5 +16,11 @@ namespace XamIntJul2021.AppBase.Settings
             get => Preferences.Get(Constants.UserSettings.TERMSANDCONDITIONS, false);
             set => Preferences.Set(Constants.UserSettings.TERMSANDCONDITIONS, value);
         }
+
+        public static string AccessToken
+        {
+            get => Preferences.Get(Constants.UserSettings.TOKEN, null);
+            set => Preferences.Set(Constants.UserSettings.TOKEN, value);
+        }
     }
 }

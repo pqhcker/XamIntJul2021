@@ -12,6 +12,7 @@ namespace XamIntJul2021.AppBase.Constants
         public const String NEWREPORTSTEP1 = "06-1";
         public const String REPORTS = "07";
         public const String LOCATIONS = "08";
+        public const String BRANCH_DETAIL = "08-1";
         public const String SYNC = "09";
         public const String ABOUT = "10";
 

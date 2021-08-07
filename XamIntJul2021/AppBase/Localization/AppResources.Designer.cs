@@ -214,5 +214,35 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("LoginTitle", resourceCulture);
             }
         }
+        
+        public static string UserInfoSuccessMessage {
+            get {
+                return ResourceManager.GetString("UserInfoSuccessMessage", resourceCulture);
+            }
+        }
+        
+        public static string UserInfoErrorMessage {
+            get {
+                return ResourceManager.GetString("UserInfoErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string GetBranchesSuccessMessage {
+            get {
+                return ResourceManager.GetString("GetBranchesSuccessMessage", resourceCulture);
+            }
+        }
+        
+        public static string GetBranchesErrorMessage {
+            get {
+                return ResourceManager.GetString("GetBranchesErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string BranchDetailTitle {
+            get {
+                return ResourceManager.GetString("BranchDetailTitle", resourceCulture);
+            }
+        }
     }
 }

@@ -10,4 +10,18 @@
         <vm1:LocationsViewModel/>
     </controls:BindedPage.BindingContext>
 
+    <CollectionView ItemsSource="{Binding Branches}"
+                    SelectedItem="{Binding SelectedBranch}"
+                    SelectionMode="Single">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Margin="0,0,0,10">
+                    <Label Style="{StaticResource Header}" Text="{Binding Name}"/>
+                    <Label Text="{Binding Location}"/>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+
 </controls:BindedPage>

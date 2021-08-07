@@ -24,9 +24,68 @@ namespace XamIntJul2021.Services.RestServices
 
         }
 
-        public Task<UserInfoResponse> GetUserInfo()
+        public async Task<UserInfoResponse> GetUserInfo()
         {
-            throw new NotImplementedException();
+            UserInfoResponse userInfoResponse = new()
+            {
+                ServiceResponse = AppBase.Enums.ServiceResponse.Error,
+                Message = AppResources.ErrorMessage
+            };
+
+            InitHttpClient();
+
+            var requestUri = $"{API_ENDPOINT}{USER_ENDPOINT}";
+
+            if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
+            {
+                try
+                {
+                    
+                    using var httpResponse = await httpClient.GetAsync(requestUri);
+
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.Ok;
+                        userInfoResponse.Message = AppResources.UserInfoSuccessMessage;
+                        userInfoResponse.User = JsonConvert.DeserializeObject<User>(await httpResponse.Content.ReadAsStringAsync());
+                    }
+                    else if (httpResponse.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                    {
+                        userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.Unauthorized;
+                        userInfoResponse.Message = AppResources.UnauthorizedMessage;
+                    }
+                    else if (httpResponse.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.BadRequest;
+                        userInfoResponse.Message = AppResources.UserInfoErrorMessage;
+                    }
+                    else if (httpResponse.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                    {
+                        userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.ServerError;
+                        userInfoResponse.Message = AppResources.ServerErrorMessage;
+                    }
+
+                }
+                catch (TimeoutException timeout)
+                {
+                    userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.Timeout;
+                    userInfoResponse.Message = AppResources.TimeoutMessage;
+                }
+                catch (Exception ex)
+                {
+                    userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.Error;
+                    userInfoResponse.Message = AppResources.ErrorMessage;
+                }
+
+
+            }
+            else
+            {
+                userInfoResponse.ServiceResponse = AppBase.Enums.ServiceResponse.NotConnected;
+                userInfoResponse.Message = AppResources.NotConnectedError;
+            }
+
+            return userInfoResponse;
         }
 
         public async Task<LoginResponse> Login(LoginCredentials loginCredentials)

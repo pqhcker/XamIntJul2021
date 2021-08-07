@@ -229,4 +229,24 @@
     <value>Login</value>
     <comment/>
   </data>
+  <data name="UserInfoSuccessMessage" xml:space="preserve">
+    <value>User info obtanied</value>
+    <comment/>
+  </data>
+  <data name="UserInfoErrorMessage" xml:space="preserve">
+    <value>Error to obtain user info</value>
+    <comment/>
+  </data>
+  <data name="GetBranchesSuccessMessage" xml:space="preserve">
+    <value>Obtained branches</value>
+    <comment/>
+  </data>
+  <data name="GetBranchesErrorMessage" xml:space="preserve">
+    <value>Error to get Branches</value>
+    <comment/>
+  </data>
+  <data name="BranchDetailTitle" xml:space="preserve">
+    <value>Branch details</value>
+    <comment/>
+  </data>
 </root>

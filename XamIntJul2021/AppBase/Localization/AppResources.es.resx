@@ -134,7 +134,7 @@
     <comment/>
   </data>
   <data name="PageTitleTerms" xml:space="preserve">
-    <value>TERMS</value>
+    <value>Terminos</value>
     <comment/>
   </data>
   <data name="PageTitleMainMenu" xml:space="preserve">
@@ -146,7 +146,7 @@
     <comment/>
   </data>
   <data name="PageTitleLocations" xml:space="preserve">
-    <value>Suursales</value>
+    <value>Sucursales</value>
     <comment/>
   </data>
   <data name="PageTitleSync" xml:space="preserve">
@@ -227,6 +227,26 @@
   </data>
   <data name="LoginTitle" xml:space="preserve">
     <value>Inicio de sesion</value>
+    <comment/>
+  </data>
+  <data name="UserInfoSuccessMessage" xml:space="preserve">
+    <value>Informacion de usuario obtenida</value>
+    <comment/>
+  </data>
+  <data name="UserInfoErrorMessage" xml:space="preserve">
+    <value>Error al obtener la info de usuario</value>
+    <comment/>
+  </data>
+  <data name="GetBranchesSuccessMessage" xml:space="preserve">
+    <value>Sucursales obtenidas</value>
+    <comment/>
+  </data>
+  <data name="GetBranchesErrorMessage" xml:space="preserve">
+    <value>Error al obtener sucursales</value>
+    <comment/>
+  </data>
+  <data name="BranchDetailTitle" xml:space="preserve">
+    <value>Sucursales detalle</value>
     <comment/>
   </data>
 </root>

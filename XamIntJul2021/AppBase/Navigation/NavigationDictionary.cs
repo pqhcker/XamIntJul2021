@@ -33,6 +33,7 @@ namespace XamIntJul2021.AppBase.Navigation
             Add(Constants.PageIds.NEWREPORTSTEP1, new(typeof(NewReportStep1), typeof(NewReportStep1ViewModel)));
             Add(Constants.PageIds.REPORTS, new(typeof(ReportsPage), typeof(ReportsViewModel)));
             Add(Constants.PageIds.LOCATIONS, new(typeof(LocationsPage), typeof(LocationsViewModel)));
+            Add(Constants.PageIds.BRANCH_DETAIL, new(typeof(BranchDetail), typeof(BranchDetailViewModel)));
             Add(Constants.PageIds.SYNC, new(typeof(SyncPage), typeof(SyncViewModel)));
             Add(Constants.PageIds.ABOUT, new(typeof(AboutPage), typeof(AboutViewModel)));
         }
