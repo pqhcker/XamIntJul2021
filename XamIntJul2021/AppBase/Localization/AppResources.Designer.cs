@@ -244,5 +244,35 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("BranchDetailTitle", resourceCulture);
             }
         }
+        
+        public static string CurrentLocationLabel {
+            get {
+                return ResourceManager.GetString("CurrentLocationLabel", resourceCulture);
+            }
+        }
+        
+        public static string GetLocationErrorTitle {
+            get {
+                return ResourceManager.GetString("GetLocationErrorTitle", resourceCulture);
+            }
+        }
+        
+        public static string GetLocationNotSupportedError {
+            get {
+                return ResourceManager.GetString("GetLocationNotSupportedError", resourceCulture);
+            }
+        }
+        
+        public static string GetLocationNotEnabledError {
+            get {
+                return ResourceManager.GetString("GetLocationNotEnabledError", resourceCulture);
+            }
+        }
+        
+        public static string GetLocationPermissionError {
+            get {
+                return ResourceManager.GetString("GetLocationPermissionError", resourceCulture);
+            }
+        }
     }
 }

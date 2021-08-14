@@ -249,4 +249,24 @@
     <value>Sucursales detalle</value>
     <comment/>
   </data>
+  <data name="CurrentLocationLabel" xml:space="preserve">
+    <value>Yo</value>
+    <comment/>
+  </data>
+  <data name="GetLocationErrorTitle" xml:space="preserve">
+    <value>Error al obtener la ubicacion</value>
+    <comment/>
+  </data>
+  <data name="GetLocationNotSupportedError" xml:space="preserve">
+    <value>Obtener la ubicacions no soportado</value>
+    <comment/>
+  </data>
+  <data name="GetLocationNotEnabledError" xml:space="preserve">
+    <value>Obtener la ubicacion no habilitado</value>
+    <comment/>
+  </data>
+  <data name="GetLocationPermissionError" xml:space="preserve">
+    <value>El usuario no tiene permisos para usar la ubicacion</value>
+    <comment/>
+  </data>
 </root>

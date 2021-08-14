@@ -58,6 +58,9 @@
     <None Remove="Services\RestServices\" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="Xamarin.Forms.Maps" />
+    <None Remove="Services\RestServices\GoogleDirections\" />
+    <None Remove="Services\Responses\GoogleDirections\" />
+    <None Remove="Services\RestServices\GoogleDirections\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -92,6 +95,9 @@
     <Folder Include="AppBase\Services\Reponses\" />
     <Folder Include="Services\Responses\" />
     <Folder Include="Services\RestServices\" />
+    <Folder Include="Services\RestServices\GoogleDirections\" />
+    <Folder Include="Services\Responses\GoogleDirections\" />
+    <Folder Include="Services\RestServices\GoogleDirections\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Files\TermsAndConditionsEN.html" />

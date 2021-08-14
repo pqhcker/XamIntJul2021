@@ -249,4 +249,24 @@
     <value>Branch details</value>
     <comment/>
   </data>
+  <data name="CurrentLocationLabel" xml:space="preserve">
+    <value>Me</value>
+    <comment/>
+  </data>
+  <data name="GetLocationErrorTitle" xml:space="preserve">
+    <value>Failed to get location</value>
+    <comment/>
+  </data>
+  <data name="GetLocationNotSupportedError" xml:space="preserve">
+    <value>Get location not supported</value>
+    <comment/>
+  </data>
+  <data name="GetLocationNotEnabledError" xml:space="preserve">
+    <value>Get location not enabled</value>
+    <comment/>
+  </data>
+  <data name="GetLocationPermissionError" xml:space="preserve">
+    <value>User permission is requiered to get location</value>
+    <comment/>
+  </data>
 </root>
