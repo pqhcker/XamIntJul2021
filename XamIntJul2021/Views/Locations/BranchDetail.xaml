@@ -14,7 +14,8 @@
     <Grid RowDefinitions="20,auto,auto,*,auto,30">
         <Label Grid.Row="1" Text="{Binding Name}" Style="{StaticResource Header}"/>
         <Label Grid.Row="2" Text="{Binding Location}"/>
-        <controls:RouteMap Grid.Row="3" IsShowingUser="True" UserLocation="{Binding CurrentLocation}"/>
+        <controls:RouteMap Grid.Row="3" IsShowingUser="True" UserLocation="{Binding CurrentLocation}"
+                           Route="{Binding Route}"/>
         <Button Grid.Row="4" Text="Mostrar Ruta" Command="{Binding ShowRouteCommand}"/>
     </Grid>
 

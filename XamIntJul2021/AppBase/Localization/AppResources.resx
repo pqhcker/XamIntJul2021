@@ -269,4 +269,12 @@
     <value>User permission is requiered to get location</value>
     <comment/>
   </data>
+  <data name="OriginPinLabel" xml:space="preserve">
+    <value>Origin</value>
+    <comment/>
+  </data>
+  <data name="DestinationPinLabel" xml:space="preserve">
+    <value>Destination</value>
+    <comment/>
+  </data>
 </root>

@@ -274,5 +274,17 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("GetLocationPermissionError", resourceCulture);
             }
         }
+        
+        public static string OriginPinLabel {
+            get {
+                return ResourceManager.GetString("OriginPinLabel", resourceCulture);
+            }
+        }
+        
+        public static string DestinationPinLabel {
+            get {
+                return ResourceManager.GetString("DestinationPinLabel", resourceCulture);
+            }
+        }
     }
 }

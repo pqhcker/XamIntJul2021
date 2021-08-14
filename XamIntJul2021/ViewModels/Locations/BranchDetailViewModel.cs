@@ -58,6 +58,8 @@ namespace XamIntJul2021.ViewModels.Locations
                 }
             }
 
+            Route = route;
+
         }
 
         private async Task GetCurrentLocation()
@@ -102,6 +104,7 @@ namespace XamIntJul2021.ViewModels.Locations
         private string name;
         private string location;
         private Position currentLocation;
+        private IEnumerable<Position> route;
 
         public String Name
         {
@@ -119,6 +122,13 @@ namespace XamIntJul2021.ViewModels.Locations
         {
             get => currentLocation;
             set => SetProperty(ref currentLocation, value);
+        }
+
+
+        public IEnumerable<Position> Route
+        {
+            get => route;
+            set => SetProperty(ref route, value);
         }
 
         public Command ShowRouteCommand { get; set; }

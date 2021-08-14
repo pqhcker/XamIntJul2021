@@ -269,4 +269,12 @@
     <value>El usuario no tiene permisos para usar la ubicacion</value>
     <comment/>
   </data>
+  <data name="OriginPinLabel" xml:space="preserve">
+    <value>Origen</value>
+    <comment/>
+  </data>
+  <data name="DestinationPinLabel" xml:space="preserve">
+    <value>Destino</value>
+    <comment/>
+  </data>
 </root>
