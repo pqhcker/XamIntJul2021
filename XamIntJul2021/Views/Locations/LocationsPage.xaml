@@ -10,18 +10,22 @@
         <vm1:LocationsViewModel/>
     </controls:BindedPage.BindingContext>
 
-    <CollectionView ItemsSource="{Binding Branches}"
+    <RefreshView Command="{Binding OnAppearingCommnad}" IsRefreshing="{Binding IsRefreshing}">
+        <CollectionView ItemsSource="{Binding Branches}"
                     SelectedItem="{Binding SelectedBranch}"
-                    SelectionMode="Single">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout Margin="0,0,0,10">
-                    <Label Style="{StaticResource Header}" Text="{Binding Name}"/>
-                    <Label Text="{Binding Location}"/>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
+                    SelectionMode="Single"
+                    RemainingItemsThreshold="1"
+                    RemainingItemsThresholdReachedCommand="{Binding LoadNextItemsCommand}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="0,0,0,10">
+                        <Label Style="{StaticResource Header}" Text="{Binding Name}"/>
+                        <Label Text="{Binding Location}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
 
-    </CollectionView>
+        </CollectionView>
+    </RefreshView>
 
 </controls:BindedPage>

@@ -17,6 +17,8 @@ namespace XamIntJul2021.AppBase.Constants
 
         public const string BRANCH_ENDPOINT = "/branches";
 
+        public const int BRANCH_PAGE_SIZE = 30;
+
         public const string TOKEN_TYPE = "bearer";
     }
 }

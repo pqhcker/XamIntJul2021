@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using XamIntJul2021.AppBase;
 using XamIntJul2021.AppBase.Localization;
@@ -15,6 +16,16 @@ namespace XamIntJul2021.ViewModels.Locations
     {
         IBranchesService branchesService;
 
+        public Command LoadNextItemsCommand { get; set; }
+
+        private bool isRefreshing;
+
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set => SetProperty(ref isRefreshing, value);
+        }
+
         public LocationsViewModel()
         {
             Title = AppResources.PageTitleLocations;
@@ -22,6 +33,8 @@ namespace XamIntJul2021.ViewModels.Locations
             branchesService = new BranchRestService
                 (UserSettings.AccessToken, AppBase.Constants.RestServiceConstants.TOKEN_TYPE);
             OnAppearingCommnad = new Command(async () => await LoadBranches());
+
+            LoadNextItemsCommand = new(async () => await LoadNextItems());
         }
 
         private ObservableCollection<Branch> branches;
@@ -41,22 +54,51 @@ namespace XamIntJul2021.ViewModels.Locations
             set
             {
                 SetProperty(ref selectedBranch, value);
-                if(selectedBranch is not null)
+                if (selectedBranch is not null)
                 {
                     NavigationParametersToSend[AppBase.Constants.Parameters.BRANCH] = selectedBranch;
                     SelectedBranch = null;
                     NavigationService.NavigateToAsync(AppBase.Constants.PageIds.BRANCH_DETAIL, NavigationParametersToSend);
                 }
             }
-                
+
 
         }
 
         private async Task LoadBranches()
         {
-            var branchesResponse = await branchesService.GetBranches();
-            if (branchesResponse.ServiceResponse == AppBase.Enums.ServiceResponse.Ok)
-                Branches = new(branchesResponse.Branches);
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                IsRefreshing = true;
+                currentPage = 1;
+                var branchesResponse = await branchesService.GetBranches(currentPage, AppBase.Constants.RestServiceConstants.BRANCH_PAGE_SIZE);
+                if (branchesResponse.ServiceResponse == AppBase.Enums.ServiceResponse.Ok)
+                    Branches = new(branchesResponse.Branches);
+                IsBusy = false;
+                IsRefreshing = false;
+            }
+
+        }
+
+        private int currentPage = 1;
+
+        private async Task LoadNextItems()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                currentPage++;
+                var branchesResponse = await branchesService.GetBranches(currentPage, AppBase.Constants.RestServiceConstants.BRANCH_PAGE_SIZE);
+                if (branchesResponse.ServiceResponse == AppBase.Enums.ServiceResponse.Ok)
+                    foreach (var branch in branchesResponse.Branches)
+                    {
+                        Branches.Add(branch);
+                    }
+
+                IsBusy = false;
+            }
+
         }
     }
 }

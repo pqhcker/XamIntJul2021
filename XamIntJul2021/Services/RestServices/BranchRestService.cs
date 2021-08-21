@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using Newtonsoft.Json;
 using XamIntJul2021.AppBase.Localization;
 using XamIntJul2021.AppBase.Services.RestService;
@@ -19,7 +20,7 @@ namespace XamIntJul2021.Services.RestServices
 
         }
 
-        public async Task<BranchesResponse> GetBranches()
+        public async Task<BranchesResponse> GetBranches(int page, int pageSize)
         {
             BranchesResponse userInfoResponse = new()
             {
@@ -29,7 +30,14 @@ namespace XamIntJul2021.Services.RestServices
 
             InitHttpClient();
 
-            var requestUri = $"{API_ENDPOINT}{BRANCH_ENDPOINT}";
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            query["PageNumber"] = page.ToString();
+            query["PageSize"] = pageSize.ToString();
+
+            string queryString = query.ToString();
+
+
+            var requestUri = $"{API_ENDPOINT}{BRANCH_ENDPOINT}?{queryString}";
 
             if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
             {

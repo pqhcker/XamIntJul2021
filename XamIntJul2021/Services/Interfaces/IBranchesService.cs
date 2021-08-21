@@ -6,6 +6,6 @@ namespace XamIntJul2021.Services.Interfaces
 {
     public interface IBranchesService
     {
-        Task<BranchesResponse> GetBranches();
+        Task<BranchesResponse> GetBranches(int page, int pageSize);
     }
 }

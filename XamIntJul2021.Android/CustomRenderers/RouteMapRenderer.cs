@@ -9,14 +9,27 @@ using Xamarin.Forms.Maps.Android;
 using Xamarin.Forms.Platform.Android;
 using XamIntJul2021.AppBase.Controls;
 using XamIntJul2021.Droid.CustomRenderers;
+using static Android.Gms.Maps.GoogleMap;
 
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace XamIntJul2021.Droid.CustomRenderers
 {
-    public class RouteMapRenderer : MapRenderer
+    public class RouteMapRenderer : MapRenderer, IOnMarkerClickListener
     {
         public RouteMapRenderer(Context context):base(context)
         {
+        }
+
+        public bool OnMarkerClick(Marker marker)
+        {
+            marker.ShowInfoWindow();
+            return true;
+        }
+
+        protected override void OnMapReady(GoogleMap map)
+        {
+            base.OnMapReady(map);
+            NativeMap.SetOnMarkerClickListener(this);
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Map> e)
@@ -50,7 +63,7 @@ namespace XamIntJul2021.Droid.CustomRenderers
                     marker.SetPosition(new LatLng(colorPin.Position.Latitude, colorPin.Position.Longitude));
                     marker.SetIcon(GetColorMarkerIcon(colorPin.Color.ToAndroid()));
                     
-                    nativeMap.AddMarker(marker).ShowInfoWindow();
+                    nativeMap.AddMarker(marker);
                 }
             }
         }
