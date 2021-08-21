@@ -28,6 +28,18 @@
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 
+        <Style TargetType="Label" x:Key="ProgressBarHeader">
+            <Setter Property="TextColor" Value="{StaticResource MainColor}"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="ProgressBarDark">
+            <Setter Property="BackgroundColor" Value="{StaticResource DarkColor}"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="ProgressBarLight">
+            <Setter Property="BackgroundColor" Value="{StaticResource LightColor}"/>
+        </Style>
+
        <ControlTemplate x:Key="MasterTemplate">
            <Grid RowDefinitions="auto,*">
                <Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="20,auto,*,auto,20" BackgroundColor="{StaticResource SecondaryColor}">

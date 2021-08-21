@@ -286,5 +286,17 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("DestinationPinLabel", resourceCulture);
             }
         }
+        
+        public static string ProgressBarHeader {
+            get {
+                return ResourceManager.GetString("ProgressBarHeader", resourceCulture);
+            }
+        }
+        
+        public static string PageTitlePreviewPhoto {
+            get {
+                return ResourceManager.GetString("PageTitlePreviewPhoto", resourceCulture);
+            }
+        }
     }
 }

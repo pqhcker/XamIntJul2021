@@ -4,10 +4,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="XamIntJul2021.Views.NewReport.NewReportStep1"
     xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
-    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.NewReport">
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.NewReport"
+    xmlns:cvt="clr-namespace:XamIntJul2021.AppBase.Converters">
 
     <controls:BindedPage.BindingContext>
         <vm1:NewReportStep1ViewModel/>
     </controls:BindedPage.BindingContext>
+
+    <controls:BindedPage.Resources>
+        <cvt:ByteToImageConverter x:Key="byteToImageCvt"/>
+    </controls:BindedPage.Resources>
+
+    <Grid RowDefinitions="20,auto,*,*,20" ColumnDefinitions="10*,40*,40*,10*">
+        <controls:ProgressBar Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" TotalSteps="4" CurrentStep="1"/>
+
+        <Image Grid.Column="1" Grid.Row="2" Source="{Binding Photo1, Converter={StaticResource byteToImageCvt}}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TakePhotoCommand}" CommandParameter="1"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Image Grid.Column="2" Grid.Row="2" Source="{Binding Photo2, Converter={StaticResource byteToImageCvt}}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TakePhotoCommand}" CommandParameter="2"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Column="1" Grid.Row="3" Source="{Binding Photo3, Converter={StaticResource byteToImageCvt}}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TakePhotoCommand}" CommandParameter="3"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Column="2" Grid.Row="3" Source="{Binding Photo4, Converter={StaticResource byteToImageCvt}}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TakePhotoCommand}" CommandParameter="4"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
 
 </controls:BindedPage>

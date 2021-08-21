@@ -277,4 +277,12 @@
     <value>Destination</value>
     <comment/>
   </data>
+  <data name="ProgressBarHeader" xml:space="preserve">
+    <value>Process steps</value>
+    <comment/>
+  </data>
+  <data name="PageTitlePreviewPhoto" xml:space="preserve">
+    <value>Preview Photo</value>
+    <comment/>
+  </data>
 </root>

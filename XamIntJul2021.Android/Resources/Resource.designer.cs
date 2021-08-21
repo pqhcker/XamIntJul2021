@@ -16219,16 +16219,19 @@ namespace XamIntJul2021.Droid
 			public const int sync = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int test_custom_background = 2131165354;
+			public const int take = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int tooltip_frame_dark = 2131165355;
+			public const int test_custom_background = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
-			public const int tooltip_frame_light = 2131165356;
+			public const int tooltip_frame_dark = 2131165356;
 			
 			// aapt resource value: 0x7F0700AD
-			public const int wrong = 2131165357;
+			public const int tooltip_frame_light = 2131165357;
+			
+			// aapt resource value: 0x7F0700AE
+			public const int wrong = 2131165358;
 			
 			static Drawable()
 			{

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.NewReport.PreviewPhotoPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.NewReport"
+    xmlns:cvt="clr-namespace:XamIntJul2021.AppBase.Converters">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:PreviewPhotoViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <controls:BindedPage.Resources>
+        <cvt:ByteToImageConverter x:Key="byteToImageCvt"/>
+    </controls:BindedPage.Resources>
+
+    <Grid RowDefinitions="20,*,auto,auto,20">
+        <controls:PinchToZoomContainer Grid.Row="1">
+            <controls:PanContainer VerticalOptions="Center" HorizontalOptions="Center">
+                <Image HorizontalOptions="Center" Source="{Binding Photo, Converter={StaticResource byteToImageCvt}}"/>
+            </controls:PanContainer>
+        </controls:PinchToZoomContainer>
+
+        <Button Grid.Row="2" Text="Aceptar"/>
+        <Button Grid.Row="3" Text="Tomar de nuevo"/>
+    </Grid>
+</controls:BindedPage>
