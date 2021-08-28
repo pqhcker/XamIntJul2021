@@ -13,9 +13,15 @@
 
     <controls:BindedPage.Resources>
         <cvt:ByteToImageConverter x:Key="byteToImageCvt"/>
+        <cvt:BoolToInverseConverter x:Key="boolToInverseCvt"/>
     </controls:BindedPage.Resources>
 
-    <Grid RowDefinitions="20,auto,*,*,20" ColumnDefinitions="10*,40*,40*,10*">
+    <controls:BindedPage.ToolbarItems>
+        <ToolbarItem Text="Next" Command="{Binding NextCommand}"/>
+    </controls:BindedPage.ToolbarItems>
+
+    <Grid RowDefinitions="20,auto,*,*,20" ColumnDefinitions="10*,40*,40*,10*"
+          IsEnabled="{Binding IsBusy, Converter={StaticResource boolToInverseCvt}}">
         <controls:ProgressBar Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" TotalSteps="4" CurrentStep="1"/>
 
         <Image Grid.Column="1" Grid.Row="2" Source="{Binding Photo1, Converter={StaticResource byteToImageCvt}}">

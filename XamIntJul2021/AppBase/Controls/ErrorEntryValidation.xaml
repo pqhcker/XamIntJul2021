@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<StackLayout
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:XamIntJul2021.AppBase.Behaviors"
+    x:Class="XamIntJul2021.AppBase.Controls.ErrorEntryValidation">
+
+    <StackLayout Orientation="Horizontal">
+        <Label x:Name="lbTitle" Style="{StaticResource FieldHeader}" />
+        <Label x:Name="lbIndicator" TextColor="Red" Text="*" />
+    </StackLayout>
+    <Entry x:Name="entry" Text="{Binding Text}">
+        <Entry.Behaviors>
+            <behaviors:ViewUnfocusBehavior/>
+        </Entry.Behaviors>
+    </Entry>
+    <Label x:Name="lbError" TextColor="Red" Text="{Binding ErrorDescription}" />
+</StackLayout>

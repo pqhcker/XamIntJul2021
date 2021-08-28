@@ -76,6 +76,7 @@
     <Compile Include="CustomRenderers\RouteMapRenderer.cs" />
     <Compile Include="Extensions\ImageUtils.cs" />
     <Compile Include="Services\Resizer.cs" />
+    <Compile Include="Effects\EntryLineColorEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -185,5 +186,6 @@
     <Folder Include="CustomRenderers\" />
     <Folder Include="Services\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Effects\" />
   </ItemGroup>
 </Project>

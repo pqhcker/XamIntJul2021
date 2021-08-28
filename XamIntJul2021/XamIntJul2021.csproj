@@ -62,6 +62,8 @@
     <None Remove="Services\Responses\GoogleDirections\" />
     <None Remove="Services\RestServices\GoogleDirections\Entities\" />
     <None Remove="AppBase\Services\Interfaces\" />
+    <None Remove="LocalSaves\" />
+    <None Remove="AppBase\Effects\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -100,6 +102,8 @@
     <Folder Include="Services\Responses\GoogleDirections\" />
     <Folder Include="Services\RestServices\GoogleDirections\Entities\" />
     <Folder Include="AppBase\Services\Interfaces\" />
+    <Folder Include="LocalSaves\" />
+    <Folder Include="AppBase\Effects\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Files\TermsAndConditionsEN.html" />

@@ -90,6 +90,11 @@ namespace XamIntJul2021.AppBase.Controls
             SetBinding(IsBusyProperty, isBusyBinding);
         }
 
+        public void UnfocusSave()
+        {
+            if (BindingContext is BaseViewModel baseViewModel)
+                baseViewModel.Save();
+        }
 
         public BindedPage()
         {

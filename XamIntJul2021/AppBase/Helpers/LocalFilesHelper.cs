@@ -37,12 +37,28 @@ namespace XamIntJul2021.AppBase.Helpers
             File.WriteAllBytes(filePath, content);
         }
 
+        public static void SaveFile(string name, string content)
+        {
+            var filePath = Path.Combine(DEFAULT_PATH, name);
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+            File.WriteAllText(filePath, content);
+        }
+
         public static byte[] ReadFile(string name)
         {
             var filePath = Path.Combine(DEFAULT_PATH, name);
             if (!File.Exists(filePath))
                 return null;
             return File.ReadAllBytes(filePath);
+        }
+
+        public static string ReadTextFile(string name)
+        {
+            var filePath = Path.Combine(DEFAULT_PATH, name);
+            if (!File.Exists(filePath))
+                return null;
+            return File.ReadAllText(filePath);
         }
 
         public static void DeleteFile(string name)

@@ -28,7 +28,13 @@ namespace XamIntJul2021.ViewModels
 
         private async Task NavigateToPage(string page)
         {
-            await NavigationService.NavigateToAsync(page);
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                await NavigationService.NavigateToAsync(page);
+                IsBusy = false;
+            }
+            
         }
     }
 }

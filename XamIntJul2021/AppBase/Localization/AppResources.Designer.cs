@@ -298,5 +298,11 @@ namespace XamIntJul2021.AppBase.Localization {
                 return ResourceManager.GetString("PageTitlePreviewPhoto", resourceCulture);
             }
         }
+        
+        public static string PageTitleNewReport2 {
+            get {
+                return ResourceManager.GetString("PageTitleNewReport2", resourceCulture);
+            }
+        }
     }
 }

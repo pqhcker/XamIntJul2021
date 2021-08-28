@@ -40,18 +40,23 @@
             <Setter Property="BackgroundColor" Value="{StaticResource LightColor}"/>
         </Style>
 
-       <ControlTemplate x:Key="MasterTemplate">
-           <Grid RowDefinitions="auto,*">
-               <Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="20,auto,*,auto,20" BackgroundColor="{StaticResource SecondaryColor}">
-                   <Label Grid.Column="1" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation" Text="{TemplateBinding Parent.Subtitle}" TextColor="White"/>
-                   <ActivityIndicator Grid.Column="2" Color="White" IsRunning="{TemplateBinding Parent.IsBusy}" IsVisible="{TemplateBinding Parent.IsBusy}"/>
-                   <Label Grid.Column="3" TextColor="White" Text="{TemplateBinding Parent.PageId, StringFormat='XI-{0}'}"/>
+        <Style TargetType="Label" x:Key="FieldHeader">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource MainColor}"/>
+        </Style>
+        <ControlTemplate x:Key="MasterTemplate">
+            <Grid RowDefinitions="auto,*">
+                <Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="20,auto,*,auto,20" BackgroundColor="{StaticResource SecondaryColor}">
+                    <Label Grid.Column="1" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation" Text="{TemplateBinding Parent.Subtitle}" TextColor="White"/>
+                    <ActivityIndicator Grid.Column="2" Color="White" IsRunning="{TemplateBinding Parent.IsBusy}" IsVisible="{TemplateBinding Parent.IsBusy}"/>
+                    <Label Grid.Column="3" TextColor="White" Text="{TemplateBinding Parent.PageId, StringFormat='XI-{0}'}"/>
                 </Grid>
 
-               <ContentPresenter Grid.Row="1"/>
+                <ContentPresenter Grid.Row="1"/>
             </Grid>
 
-       </ControlTemplate>
+        </ControlTemplate>
 
     </Application.Resources>
 </Application>

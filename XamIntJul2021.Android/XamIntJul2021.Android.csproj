@@ -68,6 +68,7 @@
     <Compile Include="CustomRenderers\RouteMapRenderer.cs" />
     <Compile Include="Services\Resizer.cs" />
     <Compile Include="Extensions\ImageUtils.cs" />
+    <Compile Include="Effects\EntryLineColorEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -251,6 +252,7 @@
     <Folder Include="CustomRenderers\" />
     <Folder Include="Services\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Effects\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamIntJul2021\XamIntJul2021.csproj">

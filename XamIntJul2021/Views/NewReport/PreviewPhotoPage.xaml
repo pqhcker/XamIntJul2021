@@ -22,7 +22,7 @@
             </controls:PanContainer>
         </controls:PinchToZoomContainer>
 
-        <Button Grid.Row="2" Text="Aceptar"/>
-        <Button Grid.Row="3" Text="Tomar de nuevo"/>
+        <Button Grid.Row="2" Text="Aceptar" Command="{Binding AcceptPhotoCommand}"/>
+        <Button Grid.Row="3" Text="Tomar de nuevo" Command="{Binding TakePhotoCommand}"/>
     </Grid>
 </controls:BindedPage>

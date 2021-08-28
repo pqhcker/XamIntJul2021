@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.NewReport.NewReportStep2Page"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.NewReport"
+    xmlns:cvt="clr-namespace:XamIntJul2021.AppBase.Converters">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:NewReportStep2ViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Margin="20">
+            <controls:ProgressBar TotalSteps="3" CurrentStep="2"/>
+
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de cliente" Text="{Binding ClientNumber}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Nombre de cliente" Text="{Binding ClientName}" />
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Email de cliente" Text="{Binding ClientEmail}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de contacto" Text="{Binding ClientPhoneNumber}"/>
+
+
+            <controls:AutoCompleteView IsObligatory="True" Placeholder="Pais"
+                                       Suggestions="{Binding Countries}"
+                                       SelectedItem="{Binding SelectedCountry}"
+                                       ShowSearchButton="False"/>
+
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Ciudad" Text="{Binding ClientCity}"/>
+
+            <controls:ErrorPickerValidation IsObligatory="True" Title="Documento de identidad" ItemsSource="{Binding Documents}"/>
+
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de documento" Text="{Binding ClientDocumentNumber}"/>
+
+            <BoxView HeightRequest="400"/>
+
+        </StackLayout>
+    </ScrollView>
+
+</controls:BindedPage>

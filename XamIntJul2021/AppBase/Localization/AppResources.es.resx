@@ -285,4 +285,8 @@
     <value>Vista Previa</value>
     <comment/>
   </data>
+  <data name="PageTitleNewReport2" xml:space="preserve">
+    <value>Nuevo Reporte 2</value>
+    <comment/>
+  </data>
 </root>
