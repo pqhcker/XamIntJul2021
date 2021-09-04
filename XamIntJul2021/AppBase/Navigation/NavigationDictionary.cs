@@ -32,6 +32,8 @@ namespace XamIntJul2021.AppBase.Navigation
 
             Add(Constants.PageIds.NEWREPORTSTEP1, new(typeof(NewReportStep1), typeof(NewReportStep1ViewModel)));
             Add(Constants.PageIds.NEWREPORTSTEP2, new(typeof(NewReportStep2Page), typeof(NewReportStep2ViewModel)));
+            Add(Constants.PageIds.NEWREPORTSTEP3, new(typeof(NewReportStep3Page), typeof(NewReportStep3ViewModel)));
+            Add(Constants.PageIds.REPORT_SUMMARY, new(typeof(ReportSummaryPage), typeof(ReportSummaryViewModel)));
             Add(Constants.PageIds.REPORTS, new(typeof(ReportsPage), typeof(ReportsViewModel)));
             Add(Constants.PageIds.PREVIEWPHOTO, new(typeof(PreviewPhotoPage), typeof(PreviewPhotoViewModel)));
             Add(Constants.PageIds.LOCATIONS, new(typeof(LocationsPage), typeof(LocationsViewModel)));

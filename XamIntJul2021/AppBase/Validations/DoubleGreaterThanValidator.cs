@@ -9,16 +9,16 @@ namespace XamIntJul2021.AppBase.Validations
             set;
         }
 
-        public double MinimumValue { get; set; }
+        public decimal MinimumValue { get; set; }
 
-        public DoubleGreaterThanValidator(object objectToValidate, double minimumValue, string errorMessage)
+        public DoubleGreaterThanValidator(object objectToValidate, decimal minimumValue, string errorMessage)
         {
             ObjectToValidate = objectToValidate;
             ErrorMessage = errorMessage;
             MinimumValue = minimumValue;
         }
 
-        public DoubleGreaterThanValidator(object objectToValidate, double minimumValue)
+        public DoubleGreaterThanValidator(object objectToValidate, decimal minimumValue)
             : this(objectToValidate, minimumValue, $"Este campo debe ser mayor a {minimumValue}")
         {
 
@@ -26,7 +26,7 @@ namespace XamIntJul2021.AppBase.Validations
 
         public override void Validate()
         {
-            if (ObjectToValidate is double number)
+            if (ObjectToValidate is decimal number)
                 IsValid = number >= MinimumValue;
         }
     }

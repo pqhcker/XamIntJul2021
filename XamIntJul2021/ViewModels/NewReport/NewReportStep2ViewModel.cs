@@ -25,11 +25,22 @@ namespace XamIntJul2021.ViewModels.NewReport
             PageId = AppBase.Constants.PageIds.NEWREPORTSTEP2;
             NextCommand = new(async () => await Next());
             LoadData();
+
+            NavigationParametersToSend[AppBase.Constants.Parameters.STEP2_VM1] = this;
+        }
+
+        public override void OnNavigationFrom(Dictionary<string, object> navigationParameters)
+        {
+            if (navigationParameters is not null && navigationParameters.ContainsKey(AppBase.Constants.Parameters.STEP1_VM1))
+                NavigationParametersToSend[AppBase.Constants.Parameters.STEP1_VM1] =
+                    navigationParameters[AppBase.Constants.Parameters.STEP1_VM1];
         }
 
         private async Task Next()
         {
             bool isValid = Validate();
+            if (isValid)
+                await NavigationService.NavigateToAsync(AppBase.Constants.PageIds.NEWREPORTSTEP3, NavigationParametersToSend);
         }
 
         private async Task LoadData()
@@ -176,7 +187,7 @@ namespace XamIntJul2021.ViewModels.NewReport
             ClientEmailValidator = new(ClientEmail, true);
             ClientEmailValidator.Validations.Add(new EmailValidator(ClientEmail));
             ClientCountryValidator = new(selectedCountry?.CountryCode, true);
-            ClientCityValidator = new (ClientCity, true);
+            ClientCityValidator = new(ClientCity, true);
             ClientDocumentValidator = new(selectedDocument, true);
             ClientDocumentNumberValidator = new(ClientDocumentNumber, true);
 

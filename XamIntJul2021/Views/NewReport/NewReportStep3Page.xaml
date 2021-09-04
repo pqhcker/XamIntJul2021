@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.NewReport.NewReportStep3Page"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.NewReport"
+    xmlns:cvt="clr-namespace:XamIntJul2021.AppBase.Converters">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:NewReportStep3ViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <controls:BindedPage.ToolbarItems>
+        <ToolbarItem Text="Next" Command="{Binding NextCommand}" />
+    </controls:BindedPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout Padding="20">
+            <controls:ProgressBar TotalSteps="4" CurrentStep="3" />
+            <Label Style="{StaticResource FieldHeader}" x:Name="lbTitle" Text="Detalles del reporte" />
+            <Editor Placeholder="Datos adicionales del reporte" HeightRequest="150" Text="{Binding ReportDescription}" />
+            <controls:ErrorEntryValidation Keyboard="Numeric" Placeholder="Monto"
+                                           ErrorDescription="{Binding AmountValidator.ErrorMessage}"
+                                           IsValid="{Binding AmountValidator.IsValid}" Text="{Binding Amount}" />
+        </StackLayout>
+    </ScrollView>
+</controls:BindedPage>

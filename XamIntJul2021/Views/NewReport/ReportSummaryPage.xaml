@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:BindedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamIntJul2021.Views.NewReport.ReportSummaryPage"
+    xmlns:controls="clr-namespace:XamIntJul2021.AppBase.Controls"
+    xmlns:vm1="clr-namespace:XamIntJul2021.ViewModels.NewReport"
+    xmlns:cvt="clr-namespace:XamIntJul2021.AppBase.Converters">
+
+    <controls:BindedPage.BindingContext>
+        <vm1:ReportSummaryViewModel/>
+    </controls:BindedPage.BindingContext>
+
+    <controls:BindedPage.Resources>
+        <Style TargetType="Label" x:Key="SummarySectionHeader">
+            <Setter Property="TextColor" Value="{StaticResource MainColor}"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <cvt:ByteToImageConverter x:Key="imageCvt"/>
+
+        <Style TargetType="Image">
+            <Setter Property="HeightRequest" Value="140"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+
+            <Style.Triggers>
+                <Trigger TargetType="Image" Property="Source" Value="{x:Null}">
+                    <Setter Property="IsVisible" Value="False"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Label" x:Key="SummaryHeader">
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </controls:BindedPage.Resources>
+
+    <ScrollView>
+        <StackLayout Margin="20">
+            <Label Text="Fotografias" Style="{StaticResource SummarySectionHeader}"/>
+
+            <Grid RowDefinitions="auto,auto" ColumnDefinitions="*,*" BindingContext="{Binding NewReportStep1ViewModel}">
+                <Image Grid.Row="0" Grid.Column="0" Source="{Binding Photo1, Converter={StaticResource imageCvt}}"/>
+                <Image Grid.Row="0" Grid.Column="1" Source="{Binding Photo2, Converter={StaticResource imageCvt}}"/>
+                <Image Grid.Row="1" Grid.Column="0" Source="{Binding Photo3, Converter={StaticResource imageCvt}}"/>
+                <Image Grid.Row="1" Grid.Column="1" Source="{Binding Photo4, Converter={StaticResource imageCvt}}"/>
+            </Grid>
+
+            <Label Text="Datos del cliente" Style="{StaticResource SummarySectionHeader}"/>
+            <!--<Button Text="Editar" Command="{Binding EditStep2Command}"/>-->
+            <!--Ese boton se oculto porque no esta la pantalla lista para Modal. Se vera despues-->
+            <Grid  BindingContext="{Binding NewReportStep2ViewModel}" RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto" ColumnDefinitions="*,*">
+                <Label Grid.Row="0" Style="{StaticResource SummaryHeader}" Text="Número de Cliente" />
+                <Label Grid.Row="1" Style="{StaticResource SummaryHeader}" Text="Nombre de Cliente" />
+                <Label Grid.Row="2" Style="{StaticResource SummaryHeader}" Text="Email de Cliente" />
+                <Label Grid.Row="3" Style="{StaticResource SummaryHeader}" Text="Teléfono de Cliente" />
+                <Label Grid.Row="4" Style="{StaticResource SummaryHeader}" Text="País de Cliente" />
+                <Label Grid.Row="5" Style="{StaticResource SummaryHeader}" Text="Ciudad de Cliente" />
+                <Label Grid.Row="6" Style="{StaticResource SummaryHeader}" Text="Documento de Cliente" />
+                <Label Grid.Row="7" Style="{StaticResource SummaryHeader}" Text="Número del documento de Cliente" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding ClientNumber}" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding ClientName}" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding ClientEmail}" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding ClientPhoneNumber}" />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding SelectedCountry}" />
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding ClientCity}" />
+                <Label Grid.Row="6" Grid.Column="1" Text="{Binding SelectedDocument}" />
+                <Label Grid.Row="7" Grid.Column="1" Text="{Binding ClientDocumentNumber}" />
+            </Grid>
+            <Label Text="Datos Adicionales" Style="{StaticResource SummarySectionHeader}"/>
+            <Grid  BindingContext="{Binding NewReportStep3ViewModel}" RowDefinitions="auto,auto,auto" ColumnDefinitions="*,*">
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource SummaryHeader}" Text="Datos adicionales" />
+                <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding ReportDescription}" />
+                <Label Grid.Row="2" Text="Monto" Style="{StaticResource SummaryHeader}" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Amount}" />
+            </Grid>
+            <Label Text="Detalles del reporte" Style="{StaticResource SummarySectionHeader}"/>
+        </StackLayout>
+    </ScrollView>
+
+</controls:BindedPage>

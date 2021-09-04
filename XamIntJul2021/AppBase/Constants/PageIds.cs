@@ -11,7 +11,9 @@ namespace XamIntJul2021.AppBase.Constants
         public const String MAINMENU = "05";
         public const String NEWREPORTSTEP1 = "06-1";
         public const String NEWREPORTSTEP2 = "06-2";
-        public const String PREVIEWPHOTO = "06-3";
+        public const String NEWREPORTSTEP3 = "06-3";
+        public const String REPORT_SUMMARY = "06-4";
+        public const String PREVIEWPHOTO = "06-3-1";
         public const String REPORTS = "07";
         public const String LOCATIONS = "08";
         public const String BRANCH_DETAIL = "08-1";

@@ -20,7 +20,8 @@ namespace XamIntJul2021.AppBase.Converters
                 new MemoryStream(DependencyService.Get<IResizer>().ScaleImage(photo, 20)));
             }
 
-            return ImageSource.FromFile("take");
+            //return ImageSource.FromFile("take");
+            return null;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
