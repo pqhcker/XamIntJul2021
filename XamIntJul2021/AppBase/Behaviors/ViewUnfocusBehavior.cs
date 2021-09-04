@@ -18,6 +18,9 @@ namespace XamIntJul2021.AppBase.Behaviors
 
         private void Bindable_Unfocused(object sender, FocusEventArgs e)
         {
+            if (sender is Entry entry)
+                entry.Text = entry.Text?.ToUpperInvariant();
+
             if (sender is VisualElement element && element.GetParentPage() is BindedPage bindedPage)
                 bindedPage.UnfocusSave();
         }

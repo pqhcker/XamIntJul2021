@@ -15,9 +15,10 @@ namespace XamIntJul2021.AppBase.Controls
             InitializeComponent();
             IsObligatory = false;
             picker.BindingContext = this;
+            label.BindingContext = this;
         }
 
-        public static readonly BindableProperty IsValidProperty = BindableProperty.Create("IsValid", typeof(ValidStatus), typeof(ErrorEntryValidation), ValidStatus.None, defaultBindingMode: BindingMode.TwoWay, propertyChanged: IsValidChanged);
+        public static readonly BindableProperty IsValidProperty = BindableProperty.Create("IsValid", typeof(ValidStatus), typeof(ErrorPickerValidation), ValidStatus.None, defaultBindingMode: BindingMode.TwoWay, propertyChanged: IsValidChanged);
         public ValidStatus IsValid
         {
             get => (ValidStatus)GetValue(IsValidProperty);
@@ -32,7 +33,7 @@ namespace XamIntJul2021.AppBase.Controls
         {
             view.SetValue(LineColorProperty, value);
         }
-        public static readonly BindableProperty IsObligatoryProperty = BindableProperty.Create("IsObligatory", typeof(bool), typeof(ErrorEntryValidation), true, propertyChanged: IsObligatotyPropertyChanged);
+        public static readonly BindableProperty IsObligatoryProperty = BindableProperty.Create("IsObligatory", typeof(bool), typeof(ErrorPickerValidation), true, propertyChanged: IsObligatotyPropertyChanged);
         public bool IsObligatory
         {
             get => (bool)GetValue(IsObligatoryProperty);
@@ -60,7 +61,7 @@ namespace XamIntJul2021.AppBase.Controls
                 IsValid = ValidStatus.None;
             }
         }
-        public static readonly BindableProperty ErrorDescriptionProperty = BindableProperty.Create(nameof(ErrorDescription), typeof(string), typeof(ErrorEntryValidation), string.Empty, defaultBindingMode: BindingMode.TwoWay);
+        public static readonly BindableProperty ErrorDescriptionProperty = BindableProperty.Create(nameof(ErrorDescription), typeof(string), typeof(ErrorPickerValidation), string.Empty, defaultBindingMode: BindingMode.TwoWay);
         public string ErrorDescription
         {
             get => (string)GetValue(ErrorDescriptionProperty);
@@ -80,6 +81,7 @@ namespace XamIntJul2021.AppBase.Controls
                 {
                     view.Effects.Remove(entryLineColorEffectToRemove);
                 }
+                (bindable as ErrorPickerValidation).label.IsVisible = false;
             }
             else
             {

@@ -21,12 +21,13 @@ namespace XamIntJul2021.AppBase.Controls
 
         private static void IsValidChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if(bindable is ErrorEntryValidation errorEntryValidator)
+            if (bindable is ErrorEntryValidation errorEntryValidator)
             {
-                if((ValidStatus)newValue != ValidStatus.Invalid)
+                if ((ValidStatus)newValue != ValidStatus.Invalid)
                 {
                     var effect = errorEntryValidator.entry.Effects.FirstOrDefault(e => e is EntryLineColorEffect);
-                    errorEntryValidator.entry.Effects.Remove(effect);
+                    if (effect is not null)
+                        errorEntryValidator.entry.Effects.Remove(effect);
                     errorEntryValidator.lbError.IsVisible = false;
                 }
                 else
@@ -73,7 +74,7 @@ namespace XamIntJul2021.AppBase.Controls
             get => (string)GetValue(ErrorDescriptionProperty);
             set
             {
-                SetValue(ErrorDescriptionProperty, value?.ToUpperInvariant());
+                SetValue(ErrorDescriptionProperty, value);
             }
         }
         public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(ErrorEntryValidation), string.Empty, defaultBindingMode: BindingMode.TwoWay);
@@ -82,7 +83,7 @@ namespace XamIntJul2021.AppBase.Controls
             get => (string)GetValue(TextProperty);
             set
             {
-                SetValue(TextProperty, value?.ToUpperInvariant());
+                SetValue(TextProperty, value);
                 //IsValid = ValidStatus.None;            }
             }
         }

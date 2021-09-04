@@ -11,26 +11,38 @@
         <vm1:NewReportStep2ViewModel/>
     </controls:BindedPage.BindingContext>
 
+    <controls:BindedPage.ToolbarItems>
+        <ToolbarItem Text="Next" Command="{Binding NextCommand}"/>
+    </controls:BindedPage.ToolbarItems>
+
     <ScrollView>
         <StackLayout Margin="20">
             <controls:ProgressBar TotalSteps="3" CurrentStep="2"/>
 
-            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de cliente" Text="{Binding ClientNumber}"/>
-            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Nombre de cliente" Text="{Binding ClientName}" />
-            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Email de cliente" Text="{Binding ClientEmail}"/>
-            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de contacto" Text="{Binding ClientPhoneNumber}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de cliente" Keyboard="Numeric" Text="{Binding ClientNumber}"
+                                           IsValid="{Binding ClientNumberValidator.IsValid}" ErrorDescription="{Binding ClientNumberValidator.ErrorMessage}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Nombre de cliente" Text="{Binding ClientName}"
+                                           IsValid="{Binding ClientNameValidator.IsValid}" ErrorDescription="{Binding ClientNameValidator.ErrorMessage}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Email de cliente" Keyboard="Email" Text="{Binding ClientEmail}"
+                                           IsValid="{Binding ClientEmailValidator.IsValid}" ErrorDescription="{Binding ClientEmailValidator.ErrorMessage}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de contacto" Keyboard="Telephone" Text="{Binding ClientPhoneNumber}"
+                                           IsValid="{Binding ClientPhoneNumberValidator.IsValid}" ErrorDescription="{Binding ClientPhoneNumberValidator.ErrorMessage}"/>
 
 
             <controls:AutoCompleteView IsObligatory="True" Placeholder="Pais"
                                        Suggestions="{Binding Countries}"
                                        SelectedItem="{Binding SelectedCountry}"
-                                       ShowSearchButton="False"/>
+                                       ShowSearchButton="False" IsValid="{Binding ClientCountryValidator.IsValid}"/>
 
-            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Ciudad" Text="{Binding ClientCity}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Ciudad" Text="{Binding ClientCity}"
+                                           IsValid="{Binding ClientCountryValidator.IsValid}" ErrorDescription="{Binding ClientCountryValidator.ErrorMessage}"/>
 
-            <controls:ErrorPickerValidation IsObligatory="True" Title="Documento de identidad" ItemsSource="{Binding Documents}"/>
+            <controls:ErrorPickerValidation IsObligatory="True" Title="Documento de identidad"
+                                            ItemsSource="{Binding Documents}" SelectedItem="{Binding SelectedDocument}"
+                                            IsValid="{Binding ClientDocumentValidator.IsValid}" ErrorDescription="{Binding ClientDocumentValidator.ErrorMessage}"/>
 
-            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de documento" Text="{Binding ClientDocumentNumber}"/>
+            <controls:ErrorEntryValidation IsObligatory="True" Placeholder="Numero de documento" Text="{Binding ClientDocumentNumber}"
+                                           IsValid="{Binding ClientDocumentNumberValidator.IsValid}" ErrorDescription="{Binding ClientDocumentNumberValidator.ErrorMessage}"/>
 
             <BoxView HeightRequest="400"/>
 

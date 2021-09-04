@@ -64,6 +64,7 @@
     <None Remove="AppBase\Services\Interfaces\" />
     <None Remove="LocalSaves\" />
     <None Remove="AppBase\Effects\" />
+    <None Remove="AppBase\Validations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppBase\" />
@@ -104,6 +105,7 @@
     <Folder Include="AppBase\Services\Interfaces\" />
     <Folder Include="LocalSaves\" />
     <Folder Include="AppBase\Effects\" />
+    <Folder Include="AppBase\Validations\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Files\TermsAndConditionsEN.html" />
